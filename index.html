@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohamed Yacine Boucheteur | Cybersecurity Professional</title>
+    <style>
+        :root {
+            --main-color: #00ff41;
+            --bg-color: #0a0a0a;
+            --card-bg: #141414;
+            --text-color: #f0f0f0;
+            --accent-color: #008f11;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        nav {
+            background: rgba(0, 0, 0, 0.9);
+            padding: 1.2rem;
+            position: sticky;
+            top: 0;
+            border-bottom: 2px solid var(--main-color);
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: var(--main-color);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        section { padding: 80px 20px; max-width: 1100px; margin: auto; }
+        h2 { color: var(--main-color); border-bottom: 2px solid var(--main-color); display: inline-block; padding-bottom: 8px; margin-bottom: 30px; }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 12px;
+            border-top: 4px solid var(--main-color);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover { transform: translateY(-8px); border-top-color: #fff; }
+        .card h3 { color: var(--main-color); margin-top: 0; }
+
+        .cert-placeholder {
+            width: 100%;
+            height: 180px;
+            background: #222;
+            border: 1px dashed var(--main-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: #555;
+            font-style: italic;
+        }
+
+        .contact-box {
+            background: linear-gradient(145deg, #1a1a1a, #0a0a0a);
+            padding: 40px;
+            border-radius: 15px;
+            border: 1px solid var(--main-color);
+            text-align: center;
+        }
+
+        .contact-box p { font-size: 1.2rem; margin: 20px 0; }
+        .contact-box a { color: var(--main-color); text-decoration: none; font-weight: bold; }
+
+        .badge {
+            background: var(--accent-color);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-right: 5px;
+        }
+
+        footer { text-align: center; padding: 50px; background: #050505; color: #444; border-top: 1px solid #1a1a1a; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#about">About</a>
+        <a href="#military">Military Exp</a>
+        <a href="#lab">Cyber Lab</a>
+        <a href="#certs">Certs</a>
+        <a href="#repo">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <section id="about">
+        <h1>Mohamed Yacine Boucheteur</h1>
+        <p style="font-size: 1.3rem; color: var(--main-color);">Cybersecurity Specialist | Former NCO</p>
+        <p>Dynamic and disciplined professional with a strong foundation in network security and ethical hacking. Leveraging 10 years of military leadership experience to solve complex security challenges. Currently focused on penetration testing and SOC analysis.</p>
+    </section>
+
+    <section id="military">
+        <h2>🎖️ Professional Military Experience</h2>
+        <div class="card">
+            <h3>Former Non-Commissioned Officer (NCO) / Sergeant</h3>
+            <p><span class="badge">10 Years Experience</span> Algerian Army</p>
+            <ul>
+                <li>Demonstrated exceptional leadership and discipline in high-pressure environments.</li>
+                <li>Expertise in operational security, strategic planning, and team management.</li>
+                <li>Proven track record of maintaining rigorous standards and information integrity.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="lab">
+        <h2>🔬 Cybersecurity Home Lab</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Penetration Testing Environment</h3>
+                <p>Equipped with <strong>Kali Linux</strong> and <strong>Parrot OS</strong> in a virtualized VMware environment. Focused on practicing advanced reconnaissance, vulnerability assessment, and exploitation techniques.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="certs">
+        <h2>📜 Professional Certifications</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="cert-placeholder">Google Certificate Image</div>
+                <h3>Google Cybersecurity Professional</h3>
+                <p>Comprehensive training in Python, Linux, SQL, and incident response frameworks (NIST, TIC).</p>
+            </div>
+            <div class="card">
+                <div class="cert-placeholder">Cisco Badge Image</div>
+                <h3>Cisco Networking Academy</h3>
+                <p>Completed <strong>Networking Basics</strong> (22 hours), mastering IP addressing, routing, and network troubleshooting.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="repo">
+        <h2>📂 Technical Projects</h2>
+        <div class="card">
+            <h3>Automation & Tools Repository</h3>
+            <p>Developing custom Python scripts for network scanning automation and security auditing.</p>
+            <a href="https://github.com/mohamedyacineboucheteur-ui" target="_blank" style="color:var(--main-color); font-weight: bold;">View GitHub Repository ↗</a>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>📧 Get In Touch</h2>
+        <div class="contact-box">
+            <p>Looking for a dedicated security professional? Let's connect.</p>
+            <p>📞 <strong>Phone:</strong> <a href="tel:+213658900112">+213 658 900 112</a></p>
+            <p>✉️ <strong>Email:</strong> <a href="mailto:mohamedyacineboucheteur@gmail.com">mohamedyacineboucheteur@gmail.com</a></p>
+            <p>🌍 <strong>Location:</strong> Algeria (Open to Relocation to EU/Canada)</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>Mohamed Yacine Boucheteur | © 2026</p>
+    </footer>
+
+</body>
+</html>
