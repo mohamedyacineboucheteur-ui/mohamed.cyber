@@ -138,6 +138,28 @@
                 <div class="lab-project" style="margin-bottom: 40px; border-bottom: 1px solid #333; padding-bottom: 20px;">
     <h3 style="color: #00ff00;">🔍 Lab: Home Network Security Audit</h3>
     <p><em>Tools: Nmap, Zenmap, VMware</em></p>
+     <!-- Mobile Security Lab Section -->
+<div class="lab-project" style="margin-bottom: 40px; border-bottom: 1px solid #333; padding-bottom: 20px;">
+    <h3 style="color: #00ff00;">🔍 Lab: Mobile Traffic Analysis & Forensic Audit</h3>
+    <p><em>Tools: Wireshark, ADB (Android Debug Bridge), Npcap, Androiddump</em></p>
+
+    <div class="lab-content">
+        <h4>1. Mobile Endpoint Integration</h4>
+        <p>Connecting a Redmi 9A device via ADB to perform real-time packet sniffing and system log analysis.</p>
+
+        <h4>2. Traffic & Log Analysis</h4>
+        <p>Monitoring background processes and third-party app behaviors (Facebook, WhatsApp, Telegram) using advanced Wireshark display filters.</p>
+        
+        <!-- استبدل اسم الصورة بالاسم الذي ستحفظ به صورتك الأخيرة -->
+        <img src="mobile-analysis.png" alt="Wireshark Android Logcat Analysis" style="width: 100%; max-width: 600px; border: 1px solid #444; margin-top: 10px;">
+
+        <ul>
+            <li><strong>Security Audit:</strong> Identified multiple <code>Permission Denied</code> events and <code>SELinux</code> policy violations.</li>
+            <li><strong>Package Monitoring:</strong> Analyzed <code>com.facebook.appmanager</code> background activities and system resource requests.</li>
+            <li><strong>Forensic Filtering:</strong> Applied <code>frame contains</code> filters to isolate credential-related strings and system errors.</li>
+        </ul>
+    </div>
+</div>
     
     <div class="lab-content">
         <h4>1. Services Enumeration</h4>
