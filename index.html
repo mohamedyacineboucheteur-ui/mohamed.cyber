@@ -5,100 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mohamed Yacine Boucheteur | Cybersecurity Professional</title>
     <style>
-        :root {
-            --main-color: #00ff41;
-            --bg-color: #0a0a0a;
-            --card-bg: #141414;
-            --text-color: #f0f0f0;
-            --accent-color: #008f11;
-        }
+        :root {/* ألوان أكثر حداثة واحترافية */
+        --main-color: #10b981;    /* أخضر زمردي هادئ واحترافي */
+        --bg-color: #0f172a;      /* أزرق ليلي غامق جداً بدلاً من الأسود الصرف */
+        --card-bg: #1e293b;      /* لون البطاقات ليكون متميزاً عن الخلفية */
+        --text-color: #f8fafc;    /* أبيض ناصع للنصوص */
+        --accent-color: #34d399;  /* لون تمييز أفتح قليلاً */
+        --text-muted: #94a3b8;    /* لون للنصوص الثانوية */
+    }
 
-        body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            margin: 0;
-            line-height: 1.6;
-            scroll-behavior: smooth;
-        }
+    body {
+        font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        margin: 0;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased; /* لجعل الخط يبدو أنعم */
+    }
 
-        nav {
-            background: rgba(0, 0, 0, 0.9);
-            padding: 1.2rem;
-            position: sticky;
-            top: 0;
-            border-bottom: 2px solid var(--main-color);
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 25px;
-            z-index: 1000;
-        }
+    /* تحسين شكل بطاقة المشروع (Forensic Audit) */
+    .project-card {
+        background: var(--card-bg);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        padding: 24px;
+        margin: 20px 0;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+    }
 
-        nav a {
-            color: var(--main-color);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+    .project-card:hover {
+        transform: translateY(-5px); /* تأثير حركة بسيط عند تمرير الماوس */
+        border-color: var(--main-color);
+    }
 
-        section { padding: 80px 20px; max-width: 1100px; margin: auto; }
-        h2 { color: var(--main-color); border-bottom: 2px solid var(--main-color); display: inline-block; padding-bottom: 8px; margin-bottom: 30px; }
+    h2, h3 {
+        color: var(--main-color);
+        font-weight: 600;
+    }
 
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-        }
-
-        .card {
-            background: var(--card-bg);
-            padding: 25px;
-            border-radius: 12px;
-            border-top: 4px solid var(--main-color);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            transition: all 0.3s ease;
-        }
-
-        .card:hover { transform: translateY(-8px); border-top-color: #fff; }
-        .card h3 { color: var(--main-color); margin-top: 0; }
-
-        .cert-placeholder {
-            width: 100%;
-            height: 180px;
-            background: #222;
-            border: 1px dashed var(--main-color);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-            color: #555;
-            font-style: italic;
-        }
-
-        .contact-box {
-            background: linear-gradient(145deg, #1a1a1a, #0a0a0a);
-            padding: 40px;
-            border-radius: 15px;
-            border: 1px solid var(--main-color);
-            text-align: center;
-        }
-
-        .contact-box p { font-size: 1.2rem; margin: 20px 0; }
-        .contact-box a { color: var(--main-color); text-decoration: none; font-weight: bold; }
-
-        .badge {
-            background: var(--accent-color);
-            color: white;
-            padding: 4px 10px;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            margin-right: 5px;
-        }
-
-        footer { text-align: center; padding: 50px; background: #050505; color: #444; border-top: 1px solid #1a1a1a; }
+    .tools-list {
+        color: var(--text-muted);
+        font-style: italic;
+        font-size: 0.9em;
+        border-bottom: 1px solid var(--card-bg);
+        padding-bottom: 10px;
+        margin-bottom: 15px;
+    }
+</style>
     </style>
 </head>
 <body>
