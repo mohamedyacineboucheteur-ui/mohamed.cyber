@@ -88,13 +88,47 @@
     <h3><i class="fas fa-rss"></i> آخر أخبار الهجمات السيبرانية</h3>
     <p class="tools-list">تحديثات مباشرة من مصادر عالمية</p>
     
-    <iframe src="https://feed.mikle.com/widget/v2/165437/" 
-            allowtransparency="true" 
-            autoscroll="no" 
-            frameborder="0" 
-            scrolling="no" 
-            style="width:100%; height:450px; border:none; border-radius: 8px;">
-    </iframe>
+    <div id="cyber-news-container" style="max-height: 450px; overflow-y: auto; padding: 10px;">
+        <p style="color: #7f8c8d; text-align: center;">جاري تحميل آخر الأخبار السيبرانية...</p>
+    </div>
+
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function() {
+            // رابط الـ RSS لموقع The Hacker News محول إلى JSON مجاناً
+            const rssUrl = 'https://thehackernews.com/feeds/posts/default';
+            const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`;
+
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    const container = document.getElementById('cyber-news-container');
+                    if (data.status === 'ok' && data.items.length > 0) {
+                        container.innerHTML = ''; // تفريغ نص التحميل
+                        
+                        // عرض آخر 5 أخبار
+                        data.items.slice(0, 5).forEach(item => {
+                            const newsItem = document.createElement('div');
+                            newsItem.style.marginBottom = '15px';
+                            newsItem.style.borderBottom = '1px solid #2c3e50';
+                            newsItem.style.paddingBottom = '10px';
+                            
+                            newsItem.innerHTML = `
+                                <a href="${item.link}" target="_blank" style="color: #16a085; text-decoration: none; font-weight: bold; font-size: 11.5pt; display: block; margin-bottom: 5px;">
+                                    ${item.title}
+                                </a>
+                                <small style="color: #7f8c8d; display: block; margin-bottom: 5px;">📅 ${new Date(item.pubDate).toLocaleDateString('fr-FR')}</small>
+                            `;
+                            container.appendChild(newsItem);
+                        });
+                    } else {
+                        container.innerHTML = '<p style="color: #e74c3c;">فشل في تحميل الأخبار حالياً.</p>';
+                    }
+                })
+                .catch(err => {
+                    document.getElementById('cyber-news-container').innerHTML = '<p style="color: #e74c3c;">خطأ في الاتصال بالمصدر.</p>';
+                });
+        });
+    </script>
 </section>
 </section>
 
