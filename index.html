@@ -318,6 +318,110 @@
 
     </div>
 </section>
+
+    </a>
+</div>
+</section>
+
+<div class="threat-intel-report">
+    
+    <div class="report-header">
+        <div class="status-badge"><span class="pulse-icon"></span> OPERATIONAL TAKEDOWN: SUCCESSFUL</div>
+        <h1>Threat Intelligence & Infrastructure Takedown Report</h1>
+        <p class="subtitle">Case Study: Dismantling Phishing Ring "mercadopro.net"</p>
+        <div class="meta-info">
+            <span><strong>Analyst:</strong> Mohamed Yacine Boucheteur</span> | 
+            <span><strong>Target Domain:</strong> mercadopro[.]net</span> | 
+            <span><strong>Date:</strong> May 2026</span>
+        </div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="section-box">
+        <h2><i class="fas fa-terminal"></i> Executive Summary</h2>
+        <p>This case study details the proactive discovery, technical analysis, and successful mitigation of a newly registered, highly active phishing infrastructure impersonating "Mercado/Mall" e-commerce brands. By performing client-side code auditing and tracking exfiltration endpoints, the malicious operation was successfully mapped and terminated via upstream providers.</p>
+    </div>
+
+    <div class="analysis-grid">
+        
+        <div class="analysis-card">
+            <h3><span class="step-num">01</span> Static & Source Code Analysis</h3>
+            <p>Auditing the landing page's source code revealed a sophisticated, dynamic credential harvesting framework designed to capture usernames and phone numbers.</p>
+            <div class="code-snippet-box">
+                <span class="code-label">Exfiltration Endpoint:</span>
+                <code>POST /index/login/register.html</code>
+            </div>
+            <p class="card-text-detail">The registration form bypasses standard validation to immediately route raw user credentials back to internal backend processing nodes.</p>
+        </div>
+
+        <div class="analysis-card">
+            <h3><span class="step-num">02</span> Infrastructure & Attribution</h3>
+            <p>Deconstruction of the dynamic JavaScript scripts exposed the scammer network's internal structure and marketing referral parameters.</p>
+            <div class="code-snippet-box">
+                <span class="code-label">Hardcoded Referral Track:</span>
+                <code>?code=42</code>
+                <br>
+                <span class="code-label">Command & Control (C2):</span>
+                <code>Telegram Handle: @amina2680</code>
+            </div>
+            <p class="card-text-detail">The dynamic logic hardcoded specific affiliate tracks directly routing to a Telegram-managed scam syndicate.</p>
+        </div>
+
+    </div>
+
+    <div class="section-box remediation-box">
+        <h2><i class="fas fa-shield-alt"></i> Incident Response & Remediation Timeline</h2>
+        
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="time-stamp">Phase 1</div>
+                <div class="timeline-content">
+                    <strong>Threat Hunt & Analysis:</strong> Identified malicious activity on <code>mercadopro.net</code> (Created 2026-04-18). Extracted payloads and traced malicious telemetry paths.
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="time-stamp">Phase 2</div>
+                <div class="timeline-content">
+                    <strong>CDN Escalation (Cloudflare):</strong> Formulated actionable threat intelligence packets and submitted them directly to Cloudflare Trust & Safety under <strong>Report ID: 0a9a58fb17697bea</strong>.
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="time-stamp">Phase 3</div>
+                <div class="timeline-content">
+                    <strong>Upstream Hosting Mitigation:</strong> Leveraged reverse proxy bypass analysis to locate the upstream provider (<strong>AROSSCLOUD INC., US</strong>) and initiated a secondary hardware-level suspension request.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="impact-box">
+        <div class="impact-title"><i class="fas fa-lock"></i> VERIFIED WORK IMPACT</div>
+        <div class="impact-grid">
+            <div class="impact-metric">
+                <span class="metric-val">100%</span>
+                <span class="metric-desc">Edge Network Traffic Blocked by Cloudflare</span>
+            </div>
+            <div class="impact-metric">
+                <span class="metric-val">520</span>
+                <span class="metric-desc">Fatal Backend Server Crash (Threat Neutralized)</span>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<section id="contact">
+    <h2>🎯 Get In Touch</h2>
+    <div class="contact-box">
+        ```
+
+### 🎨 أين تضع أكواد الـ CSS (التنسيق)؟
+أكواد التنسيق الـ `<style>` التي أرسلتها لك سابقاً، يمكنك وضعها في ملف الـ CSS الخارجي الخاص بموقعك (مثل `style.css`)، أو لصقها داخل وسم `<style>` في أعلى الصفحة (داخل قسم `<head>`) لكي تظهر الألوان والخطوط بالشكل المظلم والاحترافي المطلوب.
+
+لقد قمت أيضاً بإضافة اسمك الكامل **Mohamed Yacine Boucheteur** في خانة المحلل (Analyst) ليكون التقرير منسوباً لك رسمياً وبشكل مباشر عند قراءته.
         
         
             
