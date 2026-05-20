@@ -3,471 +3,369 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mohamed Yacine Boucheteur | Cybersecurity Professional</title>
+    <title>Mohamed Yacine Boucheteur | Cyber Security Analyst</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root {/* ألوان أكثر حداثة واحترافية */
-        --main-color: #10b981;    /* أخضر زمردي هادئ واحترافي */
-        --bg-color: #0f172a;      /* أزرق ليلي غامق جداً بدلاً من الأسود الصرف */
-        --card-bg: #1e293b;      /* لون البطاقات ليكون متميزاً عن الخلفية */
-        --text-color: #f8fafc;    /* أبيض ناصع للنصوص */
-        --accent-color: #34d399;  /* لون تمييز أفتح قليلاً */
-        --text-muted: #94a3b8;    /* لون للنصوص الثانوية */
-    }
+        :root {
+            --bg-cyber: #070a12;
+            --panel-bg: #0f1524;
+            --neon-blue: #00f0ff;
+            --neon-green: #39ff14;
+            --neon-orange: #ff9900;
+            --border-cyber: #1e293b;
+            --text-primary: #f8fafc;
+            --text-muted: #94a3b8;
+        }
 
-    body {
-        font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-        background-color: var(--bg-color);
-        color: var(--text-color);
-        margin: 0;
-        line-height: 1.6;
-        -webkit-font-smoothing: antialiased; /* لجعل الخط يبدو أنعم */
-    }
+        body {
+            background-color: var(--bg-cyber);
+            color: var(--text-primary);
+            font-family: 'Courier New', Courier, monospace, system-ui;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
 
-    /* تحسين شكل بطاقة المشروع (Forensic Audit) */
-    .project-card {
-        background: var(--card-bg);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 12px;
-        padding: 24px;
-        margin: 20px 0;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease;
-    }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
 
-    .project-card:hover {
-        transform: translateY(-5px); /* تأثير حركة بسيط عند تمرير الماوس */
-        border-color: var(--main-color);
-    }
+        /* Top Cyber Header */
+        header {
+            background-color: var(--panel-bg);
+            border: 1px solid var(--border-cyber);
+            border-bottom: 3px solid var(--neon-blue);
+            padding: 30px;
+            border-radius: 8px;
+            position: relative;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
 
-    h2, h3 {
-        color: var(--main-color);
-        font-weight: 600;
-    }
+        .status-indicator {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            background: rgba(57, 255, 14, 0.1);
+            color: var(--neon-green);
+            padding: 4px 10px;
+            font-size: 11px;
+            font-weight: bold;
+            border-radius: 4px;
+            border: 1px solid rgba(57, 255, 14, 0.3);
+        }
 
-    .tools-list {
-        color: var(--text-muted);
-        font-style: italic;
-        font-size: 0.9em;
-        border-bottom: 1px solid var(--card-bg);
-        padding-bottom: 10px;
-        margin-bottom: 15px;
-    }
-</style>
+        .status-pulse {
+            width: 7px;
+            height: 7px;
+            background-color: var(--neon-green);
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 6px;
+            box-shadow: 0 0 8px var(--neon-green);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 28px;
+            color: #fff;
+            letter-spacing: -0.5px;
+        }
+
+        header .title-sub {
+            color: var(--neon-blue);
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 5px;
+            text-transform: uppercase;
+        }
+
+        header .bio {
+            margin-top: 15px;
+            color: var(--text-muted);
+            font-size: 14px;
+            max-width: 800px;
+        }
+
+        /* Section Styling */
+        section {
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            font-size: 18px;
+            text-transform: uppercase;
+            color: #fff;
+            border-left: 3px solid var(--neon-blue);
+            padding-left: 12px;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        /* Info & Badges Grid */
+        .badge-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .cyber-badge {
+            background-color: #131c31;
+            border: 1px solid var(--border-cyber);
+            color: var(--text-primary);
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .cyber-badge i {
+            color: var(--neon-blue);
+        }
+
+        .cyber-badge.cert {
+            border-color: rgba(255, 153, 0, 0.4);
+        }
+        .cyber-badge.cert i {
+            color: var(--neon-orange);
+        }
+
+        /* Projects Layout */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+
+        .project-card {
+            background-color: var(--panel-bg);
+            border: 1px solid var(--border-cyber);
+            border-radius: 8px;
+            padding: 25px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            border-color: var(--neon-blue);
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.1);
+        }
+
+        .project-card h3 {
+            margin-top: 0;
+            font-size: 18px;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .project-card h3 i {
+            color: var(--neon-blue);
+        }
+
+        .project-card.takedown h3 i {
+            color: var(--neon-orange);
+        }
+
+        .project-card p {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin: 10px 0 15px 0;
+        }
+
+        .tech-box {
+            background-color: #06090f;
+            border: 1px dashed #233044;
+            padding: 12px;
+            border-radius: 6px;
+            margin: 15px 0;
+        }
+
+        .tech-label {
+            display: block;
+            font-size: 10px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        code {
+            color: #ff7b72;
+            font-size: 13px;
+            font-family: monospace;
+        }
+
+        .timeline-mini {
+            border-left: 2px solid #233044;
+            padding-left: 15px;
+            margin: 15px 0 15px 5px;
+            font-size: 13px;
+        }
+
+        .timeline-step {
+            margin-bottom: 8px;
+        }
+        .timeline-step:last-child { margin-bottom: 0; }
+
+        .btn-git {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: #1f293d;
+            border: 1px solid var(--border-cyber);
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-size: 13px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+
+        .btn-git:hover {
+            background-color: var(--neon-blue);
+            color: var(--bg-cyber);
+        }
+
+        /* Contact Panel */
+        .contact-panel {
+            background-color: var(--panel-bg);
+            border: 1px solid var(--border-cyber);
+            border-radius: 8px;
+            padding: 30px;
+            margin-top: 40px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .contact-item strong {
+            color: #fff;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .contact-item a {
+            color: var(--neon-blue);
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding-top: 40px;
+            font-size: 11px;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border-cyber);
+            margin-top: 6px;
+        }
     </style>
 </head>
 <body>
 
-    <nav>
-        <a href="#about">About</a>
-        <a href="#military">Military Exp</a>
-        <a href="#lab">Cyber Lab</a>
-        <a href="#certs">Certs</a>
-        <a href="#repo">Projects</a>
-        <a href="#contact">Contact</a>
-    </nav>
-
-    <section id="about">
-        <h1>Mohamed Yacine Boucheteur</h1>
-        <p style="font-size: 1.3rem; color: var(--main-color);">Cybersecurity Specialist | Former NCO</p>
-        <p>Dynamic and disciplined professional with a strong foundation in network security and ethical hacking. Leveraging 10 years of military leadership experience to solve complex security challenges. Currently focused on penetration testing and SOC analysis.</p>
-    </section>
-
-    <section id="military">
-        <h2>🎖️ Professional Military Experience</h2>
-        <div class="card">
-            <h3>Former Non-Commissioned Officer (NCO) / Sergeant</h3>
-            <p><span class="badge">10 Years Experience</span> Algerian Army</p>
-            <ul>
-                <li>Demonstrated exceptional leadership and discipline in high-pressure environments.</li>
-                <li>Expertise in operational security, strategic planning, and team management.</li>
-                <li>Proven track record of maintaining rigorous standards and information integrity.</li>
-            </ul>
-        </div>
-</section>
- <section class="project-card">
-    <h3><i class="fas fa-rss"></i> آخر أخبار الهجمات السيبرانية</h3>
-    <p class="tools-list">تحديثات مباشرة من مصادر عالمية</p>
-    
-    <div id="cyber-news-container" style="max-height: 450px; overflow-y: auto; padding: 10px;">
-        <p style="color: #7f8c8d; text-align: center;">جاري تحميل آخر الأخبار السيبرانية...</p>
-    </div>
-
-    <script type="text/javascript">
-        document.addEventListener("DOMContentLoaded", function() {
-            // رابط الـ RSS لموقع The Hacker News محول إلى JSON مجاناً
-            const rssUrl = 'https://thehackernews.com/feeds/posts/default';
-            const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`;
-
-            fetch(apiUrl)
-                .then(response => response.json())
-                .then(data => {
-                    const container = document.getElementById('cyber-news-container');
-                    if (data.status === 'ok' && data.items.length > 0) {
-                        container.innerHTML = ''; // تفريغ نص التحميل
-                        
-                        // عرض آخر 5 أخبار
-                        data.items.slice(0, 5).forEach(item => {
-                            const newsItem = document.createElement('div');
-                            newsItem.style.marginBottom = '15px';
-                            newsItem.style.borderBottom = '1px solid #2c3e50';
-                            newsItem.style.paddingBottom = '10px';
-                            
-                            newsItem.innerHTML = `
-                                <a href="${item.link}" target="_blank" style="color: #16a085; text-decoration: none; font-weight: bold; font-size: 11.5pt; display: block; margin-bottom: 5px;">
-                                    ${item.title}
-                                </a>
-                                <small style="color: #7f8c8d; display: block; margin-bottom: 5px;">📅 ${new Date(item.pubDate).toLocaleDateString('fr-FR')}</small>
-                            `;
-                            container.appendChild(newsItem);
-                        });
-                    } else {
-                        container.innerHTML = '<p style="color: #e74c3c;">فشل في تحميل الأخبار حالياً.</p>';
-                    }
-                })
-                .catch(err => {
-                    document.getElementById('cyber-news-container').innerHTML = '<p style="color: #e74c3c;">خطأ في الاتصال بالمصدر.</p>';
-                });
-        });
-    </script>
-</section>
-</section>
-
-    <section id="lab">
-        <h2>🔬 Cybersecurity Home Lab</h2>
-        <div class="grid">
-            <div class="card">
-                <div class="lab-project" style="margin-bottom: 40px; border-bottom: 1px solid #333; padding-bottom: 20px;">
-    <h3 style="color: #00ff00;">🔍 Lab: Home Network Security Audit</h3>
-    <p><em>Tools: Nmap, Zenmap, VMware</em></p>
-     <!-- Mobile Security Lab Section -->
-<div class="lab-project" style="margin-bottom: 40px; border-bottom: 1px solid #333; padding-bottom: 20px;">
-    <h3 style="color: #00ff00;">🔍 Lab: Mobile Traffic Analysis & Forensic Audit</h3>
-    <p><em>Tools: Wireshark, ADB (Android Debug Bridge), Npcap, Androiddump</em></p>
-
-    <div class="lab-content">
-        <h4>1. Mobile Endpoint Integration</h4>
-        <p>Connecting a Redmi 9A device via ADB to perform real-time packet sniffing and system log analysis.</p>
-
-        <h4>2. Traffic & Log Analysis</h4>
-        <p>Monitoring background processes and third-party app behaviors (Facebook, WhatsApp, Telegram) using advanced Wireshark display filters.</p>
+    <div class="container">
         
-        <!-- استبدل اسم الصورة بالاسم الذي ستحفظ به صورتك الأخيرة -->
-        <img src="mobile-analysis.png" alt="Wireshark Android Logcat Analysis" style="width: 100%; max-width: 600px; border: 1px solid #444; margin-top: 10px;">
-<ul style="margin-top: 20px; color: #ccc;">
-    <li><strong>Security Audit:</strong> Identified multiple <code>Permission Denied</code> events.</li>
-    <li><strong>Forensic Filtering:</strong> Isolated package behaviors using advanced Wireshark filters.</li>
-</ul>
-        <ul>
-            <li><strong>Security Audit:</strong> Identified multiple <code>Permission Denied</code> events and <code>SELinux</code> policy violations.</li>
-            <li><strong>Package Monitoring:</strong> Analyzed <code>com.facebook.appmanager</code> background activities and system resource requests.</li>
-            <li><strong>Forensic Filtering:</strong> Applied <code>frame contains</code> filters to isolate credential-related strings and system errors.</li>
-        </ul>
-    </div>
-</div>
-    <a href="https://github.com/mohamedyacineboucheteur-ui/Mobile-Forensics-Lab" target="_blank" style="...">
-    📁 View Full Log Report on GitHub
-</a>        
-    
-</div>
-    
-    <div class="lab-content">
-        <h4>1. Services Enumeration</h4>
-        <p>Scanning the default gateway (192.16...) to identify active services.</p>
+        <header>
+            <div class="status-indicator"><span class="status-pulse"></span> SYSTEM ACTIVE</div>
+            <h1>Mohamed Yacine Boucheteur</h1>
+            <div class="title-sub">Cyber Security Analyst & Threat Hunter</div>
+            <p class="bio">
+                Former Non-Commissioned Officer (NCO) with a decade of leadership and tactical operations experience, transitioning into advanced cybersecurity operations. Specialized in network security audits, vulnerability detection, and active threat intelligence infrastructure mitigation.
+            </p>
+        </header>
 
-        <p>Scanning the target (82.2.1.) to identify active services and version banners.</p>
-<img src="linux.png" alt="Nmap Scan Results" style="width: 100%; max-width: 600px; border: 1px solid #444; margin-top: 10px;">
-        <ul>
-  <li><strong>Information Disclosure:</strong> Exposed service versions (OpenSSH 8.7, Exim 4.99.1).</li>
-  <li><strong>Insecure Port Configuration:</strong> Port 3306 (MySQL) open to the public internet.</li>
-  <li><strong>RPC Exposure:</strong> Port 111 (rpcbind) active, leaking system metadata.</li>
-</ul>
-    
-
-        <h4>2. Vulnerability Discovery (CVE-2011-3192)</h4>
-        <p>Detected a critical Denial of Service vulnerability in the router firmware using NSE scripts.</p>
-        <img src="vuln_discovery (2).png" alt="Vulnerability Report" style="width: 100%; max-width: 600px; border: 1px solid #444; border-radius: 5px; margin: 10px 0;">
-
-        <h4>3. Lab Hardening</h4>
-        <p>Configured Virtual Machines to <strong>NAT Mode</strong> for secure environment isolation.</p>
-
-        <div class="lab-project" style="margin-bottom: 40px; border-bottom: 1px solid #333; padding-bottom: 20px;">
-    <h3 style="color: #00ff00;">🔍 Lab: Cisco Troubleshooting Guide based on OSI Model</h3>
-    <p><em>الهدف: توثيق خطوات استكشاف وإصلاح الأخطاء المنهجية في بيئات سيسكو.</em></p>
-
-    <div class="lab-content">
-        <center>
-            <img src="cisco-troubleshooting.jpg" 
-                 alt="Cisco Troubleshooting Guide based on OSI Model" 
-                 style="width: 100%; max-width: 600px; border: 1px solid #444; border-radius: 8px; margin: 20px 0;">
-        </center>
-        
-        <h4>خطوات التحقق المنهجي (Initial Checks):</h4>
-        <ul>
-            <li>تعريف المشكلة بدقة (Define the Problem).</li>
-            <li>جمع المعلومات التقنية اللازمة (Gather Information).</li>
-            <li>تحديد التغييرات الأخيرة في الشبكة (Identify Recent Changes).</li>
-        </ul>
-
-        <h4>التسلسل الهرمي للإصلاح:</h4>
-        <p>يتبع هذا الدليل تدفقاً منطقياً يبدأ من الطبقة الفيزيائية (Physical Layer) صعوداً إلى طبقة التطبيقات (Application Layer) لضمان حل المشكلات من الجذور.</p>
-    </div>
-</div>
-        <div class="lab-project" style="margin-bottom: 40px; border-bottom: 1px solid #333; padding-bottom: 20px;">
-    <h3 style="color: #00ff00;">🔍 Lab: Network Traffic & TCP Protocol Analysis</h3>
-    <p><em>Tools: Wireshark, TCPDump, Network Monitoring</em></p>
-
-    <div class="lab-content">
-        <h4>1. Traffic Capture & Inspection</h4>
-        <p>Capturing live HTTPS traffic on port 443 to monitor handshake stability and data integrity.</p>
-
-        <h4>2. Advanced TCP Diagnostics</h4>
-        <p>Identified critical network patterns: <strong>TCP Dup ACKs</strong> and <strong>Spurious Retransmissions</strong>, indicating packet loss and congestion issues in the communication path.</p>
-        
-        <img src="wireshark_analysis.png" alt="Wireshark TCP Analysis" style="width: 100%; max-width: 600px; border: 1px solid #444; margin: 10px 0; border-radius: 5px;">
-
-        <h4>3. Remediation & Optimization</h4>
-        <p>Proposed network tuning strategies to minimize latency and ensure reliable data delivery for critical infrastructures.</p>
-        
-        <a href="https://www.linkedin.com/pulse/analyse-du-trafic-r%25C3%25A9seau-boucheteur-mohamed-yacine-w6vpf" target="_blank" style="color: #00ff00; text-decoration: none; border: 1px solid #00ff00; padding: 5px 10px; border-radius: 3px; font-size: 0.8em;">Read Full Article on LinkedIn</a>
-    </div>
-</div>
-
-        <div class="lab-analysis-step" style="margin-top: 25px; padding-top: 15px; border-top: 1px dashed #444;">
-    <h4 style="color: #00d4ff;">🌐 Geographic & Ownership Identification (OSINT)</h4>
-    <p>After identifying the anomalies, I performed an <strong>OSINT lookup</strong> on the target IP to verify the source and reputation of the traffic.</p>
-    
-    <ul style="list-style: none; padding-left: 10px; color: #ccc;">
-        <li>🔹 <strong>ASN:</strong> AS15169 — Google LLC</li>
-        <li>🔹 <strong>Domain:</strong> google.com</li>
-        <li>🔹 <strong>Location:</strong> External Hosting Infrastructure</li>
-    </ul>
-
-    <img src="ip_analysis_report.png" alt="IP Ownership Analysis" style="width: 100%; max-width: 550px; border: 1px solid #00d4ff; margin: 15px 0; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 212, 255, 0.2);">
-
-    <p style="font-size: 0.9em; color: #888;"><em>Conclusion: The diagnostic confirms that the TCP Retransmission issues occur within the local network path or ISP, as the destination is a high-availability Google infrastructure.</em></p>
-</div>
-    </div>
-</div>
-                <h3>Penetration Testing Environment</h3>
-                <p>Equipped with <strong>Kali Linux</strong> and <strong>Parrot OS</strong> in a virtualized VMware environment. Focused on practicing advanced reconnaissance, vulnerability assessment, and exploitation techniques.</p>
+        <section>
+            <h2><i class="fas fa-id-card"></i> Validated Credentials & Focus Areas</h2>
+            <div class="badge-grid">
+                <div class="cyber-badge cert"><i class="fas fa-certificate"></i> Google Cybersecurity Certified</div>
+                <div class="cyber-badge cert"><i class="fas fa-shield-halved"></i> ISC2 Candidate</div>
+                <div class="cyber-badge"><i class="fas fa-network-wired"></i> Cisco Networking Academy</div>
+                <div class="cyber-badge"><i class="fas fa-microchip"></i> SOC Analysis & Incident Response</div>
+                <div class="cyber-badge"><i class="fas fa-bug"></i> Source Code Auditing</div>
+                <div class="cyber-badge"><i class="fas fa-server"></i> Home Lab Security Auditing</div>
             </div>
-        </div>
-            
-    </div>
-<section id="technical-reports">
-    <h2>التقارير التقنية</h2>
-    <div class="report-card">
-        <h3>تقرير: بروتوكول TR-069 وآلية الاستجابة الأمنية</h3>
-        <p>تحليل شامل لمنهجية إدارة أجهزة المودم عن بُعد ومعالجة ثغرة CVE-2011-3192.</p>
-        <a href="TR-069_Technical_Report_v2.pdf" target="_blank" class="btn">عرض التقرير (PDF)</a>
-    </div>
-</section>
-    <section id="certs" style="padding: 40px 20px;">
-    <h2 style="color: var(--main-color); text-align: center; margin-bottom: 30px;">Professional Certifications</h2>
-    
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px;">
-        
-        <div class="card" style="background: var(--card-bg); border: 1px solid var(--main-color); padding: 15px; border-radius: 10px; text-align: center;">
-            <img src="google-cert.png" alt="Google Cybersecurity Certificate" style="width: 100%; border-radius: 5px; margin-bottom: 10px;">
-            <h3 style="color: var(--main-color);">Foundations of Cybersecurity</h3>
-            <p>Google | Jan 24, 2026</p>
-            <a href="https://coursera.org/verify/B16XSFEL6FNI" target="_blank" style="color: var(--accent-color); text-decoration: none; font-weight: bold;">Verify Online</a>
-        </div>
+        </section>
 
-        <div class="card" style="background: var(--card-bg); border: 1px solid var(--main-color); padding: 15px; border-radius: 10px; text-align: center;">
-            <img src="Getting_Started_with_Cisco_Packet_Tracer_certificate" alt="Cisco Certificate" style="width: 100%; border-radius: 5px; margin-bottom: 10px;">
-            <h3 style="color: var(--main-color);">Getting Started with Cisco Packet Tracer</h3>
-            <p>Cisco Academy | Mar 13, 2026</p>
-        </div>
+        <section>
+            <h2><i class="fas fa-folder-open"></i> Technical Security Operations</h2>
+            <div class="projects-grid">
+                
+                <div class="project-card takedown" style="border-bottom: 3px solid var(--neon-orange);">
+                    <h3><i class="fas fa-skull-crossbones"></i> Infrastructure Takedown: Phishing Ring Mitigation</h3>
+                    <p>Proactively detected, analyzed, and successfully coordinated the defensive termination of an active malicious phishing deployment targeting global e-commerce consumers.</p>
+                    
+                    <div class="tech-box">
+                        <span class="tech-label">Target Infrastructure Data:</span>
+                        <code>Domain: mercadopro[.]net | C2 Channel: Telegram @amina2680</code><br>
+                        <span class="tech-label">Exfiltration Mechanism:</span>
+                        <code>POST Request Routing via /index/login/register.html</code>
+                    </div>
 
-        <div class="card" style="background: var(--card-bg); border: 1px solid var(--accent-color); padding: 15px; border-radius: 10px; text-align: center;">
-            <div style="height: 150px; display: flex; align-items: center; justify-content: center; font-size: 3rem; background: #222; border-radius: 5px; margin-bottom: 10px;">
-                🗂️
+                    <div class="timeline-mini">
+                        <div class="timeline-step"><strong>Phase 1:</strong> Extracted core JavaScript payloads and identified campaign attribution codes.</div>
+                        <div class="timeline-step"><strong>Phase 2:</strong> Submitted verified threat intelligence packets to Cloudflare Trust & Safety <strong>(Report ID: 0a9a58fb17697bea)</strong> resulting in immediate edge-network traffic restriction.</div>
+                        <div class="timeline-step"><strong>Phase 3:</strong> Escalated bypass analytics to upstream infrastructure provider (AROSSCLOUD) for root server suspension.</div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3><i class="fas fa-radar"></i> Automated Network Security Scanner (ARP)</h3>
+                    <p>Engineered and deployed a lightweight, reliable command-line utility optimized for fast asset discovery, MAC address mapping, and network perimeter auditing within virtualized sandbox networks.</p>
+                    <div class="tech-box">
+                        <span class="tech-label">Core Capabilities:</span>
+                        <code>Subnet Discovery / MAC Mapping / Passive Packet Interception Analytics</code>
+                    </div>
+                    <a href="https://github.com/mohamedyacineboucheteur-ui/mohamed.cyber/blob/main/README.md" target="_blank" class="btn-git">
+                        <i class="fab fa-github"></i> View Documentation & Source Code
+                    </a>
+                </div>
+
             </div>
-            <h3 style="color: var(--accent-color);">CCNA Preparation</h3>
-            <p><strong>Method:</strong> Anki Active Recall</p>
-            <p style="color: var(--accent-color);">Current: Day 01 - Network Devices</p>
-            <p style="font-size: 0.8rem; color: #888;">Jeremy's IT Lab Curriculum</p>
-        </div>
+        </section>
 
-    </div>
-</section>
-    
-    
-
-        
-        
+        <section class="contact-panel">
+            <h2><i class="fas fa-envelope"></i> Secure Communications / Get In Touch</h2>
+            <p style="font-size:14px; color: var(--text-muted); margin: 0;">Looking for an disciplined, highly adaptive security professional for roles in Europe or Canada? Let's connect.</p>
             
-             
-            
-            
-     
-        
-            
-            
-        
-
-        <div class="card" style="background: var(--card-bg); border: 1px solid var(--accent-color); padding: 15px; border-radius: 10px; text-align: center;">
-            <div style="height: 150px; display: flex; align-items: center; justify-content: center; background: #222; margin-bottom: 10px; border-radius: 5px;">
-                <span style="font-size: 3rem;">🗂️</span>
-            </div>
-            <h3 style="color: var(--accent-color);">CCNA Preparation (Anki)</h3>
-            <p>Current: Day 01 - Network Devices</p>
-            <p style="font-size: 0.8rem; color: #888;">Active Recall Method</p>
-        </div>
-
-    </div>
-</section>
-
-    </a>
-</div>
-</section>
-
-<div class="threat-intel-report">
-    
-    <div class="report-header">
-        <div class="status-badge"><span class="pulse-icon"></span> OPERATIONAL TAKEDOWN: SUCCESSFUL</div>
-        <h1>Threat Intelligence & Infrastructure Takedown Report</h1>
-        <p class="subtitle">Case Study: Dismantling Phishing Ring "mercadopro.net"</p>
-        <div class="meta-info">
-            <span><strong>Analyst:</strong> Mohamed Yacine Boucheteur</span> | 
-            <span><strong>Target Domain:</strong> mercadopro[.]net</span> | 
-            <span><strong>Date:</strong> May 2026</span>
-        </div>
-    </div>
-
-    <hr class="divider">
-
-    <div class="section-box">
-        <h2><i class="fas fa-terminal"></i> Executive Summary</h2>
-        <p>This case study details the proactive discovery, technical analysis, and successful mitigation of a newly registered, highly active phishing infrastructure impersonating "Mercado/Mall" e-commerce brands. By performing client-side code auditing and tracking exfiltration endpoints, the malicious operation was successfully mapped and terminated via upstream providers.</p>
-    </div>
-
-    <div class="analysis-grid">
-        
-        <div class="analysis-card">
-            <h3><span class="step-num">01</span> Static & Source Code Analysis</h3>
-            <p>Auditing the landing page's source code revealed a sophisticated, dynamic credential harvesting framework designed to capture usernames and phone numbers.</p>
-            <div class="code-snippet-box">
-                <span class="code-label">Exfiltration Endpoint:</span>
-                <code>POST /index/login/register.html</code>
-            </div>
-            <p class="card-text-detail">The registration form bypasses standard validation to immediately route raw user credentials back to internal backend processing nodes.</p>
-        </div>
-
-        <div class="analysis-card">
-            <h3><span class="step-num">02</span> Infrastructure & Attribution</h3>
-            <p>Deconstruction of the dynamic JavaScript scripts exposed the scammer network's internal structure and marketing referral parameters.</p>
-            <div class="code-snippet-box">
-                <span class="code-label">Hardcoded Referral Track:</span>
-                <code>?code=42</code>
-                <br>
-                <span class="code-label">Command & Control (C2):</span>
-                <code>Telegram Handle: @amina2680</code>
-            </div>
-            <p class="card-text-detail">The dynamic logic hardcoded specific affiliate tracks directly routing to a Telegram-managed scam syndicate.</p>
-        </div>
-
-    </div>
-
-    <div class="section-box remediation-box">
-        <h2><i class="fas fa-shield-alt"></i> Incident Response & Remediation Timeline</h2>
-        
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="time-stamp">Phase 1</div>
-                <div class="timeline-content">
-                    <strong>Threat Hunt & Analysis:</strong> Identified malicious activity on <code>mercadopro.net</code> (Created 2026-04-18). Extracted payloads and traced malicious telemetry paths.
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <strong><i class="fas fa-phone"></i> Phone Connection</strong>
+                    <a href="tel:+213658900112">+213 658 900 112</a>
+                </div>
+                <div class="contact-item">
+                    <strong><i class="fas fa-envelope-open"></i> Secure Mail</strong>
+                    <a href="mailto:mohamedyacineboucheteur@gmail.com">mohamedyacineboucheteur@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <strong><i class="fas fa-map-marker-alt"></i> Current Deployment</strong>
+                    Algeria (Open to Relocation to EU / Canada)
                 </div>
             </div>
-            
-            <div class="timeline-item">
-                <div class="time-stamp">Phase 2</div>
-                <div class="timeline-content">
-                    <strong>CDN Escalation (Cloudflare):</strong> Formulated actionable threat intelligence packets and submitted them directly to Cloudflare Trust & Safety under <strong>Report ID: 0a9a58fb17697bea</strong>.
-                </div>
-            </div>
+        </section>
 
-            <div class="timeline-item">
-                <div class="time-stamp">Phase 3</div>
-                <div class="timeline-content">
-                    <strong>Upstream Hosting Mitigation:</strong> Leveraged reverse proxy bypass analysis to locate the upstream provider (<strong>AROSSCLOUD INC., US</strong>) and initiated a secondary hardware-level suspension request.
-                </div>
-            </div>
-        </div>
+        <footer>
+            <p>Mohamed Yacine Boucheteur | Threat Analyst Portfolio | © 2026</p>
+        </footer>
+
     </div>
-
-    <div class="impact-box">
-        <div class="impact-title"><i class="fas fa-lock"></i> VERIFIED WORK IMPACT</div>
-        <div class="impact-grid">
-            <div class="impact-metric">
-                <span class="metric-val">100%</span>
-                <span class="metric-desc">Edge Network Traffic Blocked by Cloudflare</span>
-            </div>
-            <div class="impact-metric">
-                <span class="metric-val">520</span>
-                <span class="metric-desc">Fatal Backend Server Crash (Threat Neutralized)</span>
-            </div>
-        </div>
-    </div>
-
-</div>
-
-<section id="contact">
-    <h2>🎯 Get In Touch</h2>
-    <div class="contact-box">
-        ```
-
-### 🎨 أين تضع أكواد الـ CSS (التنسيق)؟
-أكواد التنسيق الـ `<style>` التي أرسلتها لك سابقاً، يمكنك وضعها في ملف الـ CSS الخارجي الخاص بموقعك (مثل `style.css`)، أو لصقها داخل وسم `<style>` في أعلى الصفحة (داخل قسم `<head>`) لكي تظهر الألوان والخطوط بالشكل المظلم والاحترافي المطلوب.
-
-لقد قمت أيضاً بإضافة اسمك الكامل **Mohamed Yacine Boucheteur** في خانة المحلل (Analyst) ليكون التقرير منسوباً لك رسمياً وبشكل مباشر عند قراءته.
-        
-        
-            
-        
-            
-        
-            
-            
-                
-                
-                
-            
-        
-    
-
-    <section id="repo">
-        <h2>📂 Technical Projects</h2>
-        <div class="card">
-            <h3>Automation & Tools Repository</h3>
-            <p>Developing custom Python scripts for network scanning automation and security auditing.</p>
-             <h3>Automation & Tools Repository</h3>
-<p>Developing custom Python scripts for network scanning automation and security auditing.</p>
-
-<ul>
-  <li><b>Project:</b> Network Scanner Tool (ARP)</li>
-  <li><b>Capabilities:</b> Fast device discovery & MAC address mapping.</li>
-  <li><b>Status:</b> Completed & Documented on GitHub.</li>
-</ul>
-
-<a href="https://github.com/mohamedyacineboucheteur-ui/mohamed.cyber/blob/main/README.md" target="_blank" style="color: #00ff00;">View Full Project & Results →</a>
-        </div>
-    </section>
-
-    <section id="contact">
-        <h2>📧 Get In Touch</h2>
-        <div class="contact-box">
-            <p>Looking for a dedicated security professional? Let's connect.</p>
-            <p>📞 <strong>Phone:</strong> <a href="tel:+213658900112">+213 658 900 112</a></p>
-            <p>✉️ <strong>Email:</strong> <a href="mailto:mohamedyacineboucheteur@gmail.com">mohamedyacineboucheteur@gmail.com</a></p>
-            <p>🌍 <strong>Location:</strong> Algeria (Open to Relocation to EU/Canada)</p>
-        </div>
-    </section>
-
-    <footer>
-        <p>Mohamed Yacine Boucheteur | © 2026</p>
-    </footer>
 
 </body>
 </html>
