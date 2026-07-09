@@ -26,5 +26,26 @@ Documenting the process of validating active network connections to identify pot
 - **Finding:** The connection originated from a trusted domain (Facebook/Meta infrastructure). The traffic pattern is consistent with standard browser activity.
 - ![TCPView Analysis](Screenshot%202026-07-09%20003125.png)
 
+---# 🛡️ Mohamed Yacine Boucheteur | SOC Analyst Portfolio
+
+## My Strategic SOC Mindset
+This conceptual map guides my approach to threat analysis, prioritizing business risk and logical correlation over isolated technical alerts.
+
+![SOC Mindset Map](SOC_Map.png)
+
 ---
+
+### 🗺️ Operational Framework
+Click on the areas below to explore how I apply these concepts in my daily analysis:
+
+- [ ] **[منطق الشك الافتراضي (Zero-Trust Logic)](docs/zero-trust.md)**
+- [ ] **[منطق الارتباط وليس العزل (Correlation vs Isolation)](docs/correlation.md)**
+- [ ] **[منطق المخاطرة قبل التقنية (Risk-Based Analysis)](docs/risk-analysis.md)**
+- [ ] **[منطق التحقيق المنهجي (Methodical Investigation)](docs/methodical-investigation.md)**
+- [ ] **[منطق التطور المستمر (Continuous Improvement)](docs/continuous-improvement.md)**
+- [ ] **[خلاصة دور المحلل (SOC Analyst Role Summary)](docs/soc-role.md)**
+
+---
+*I am actively applying these principles to real-world threat hunting and infrastructure security.*
 *Key Insight: Continuous validation of remote endpoints is critical for minimizing the risk of unauthorized data exfiltration.*
+
