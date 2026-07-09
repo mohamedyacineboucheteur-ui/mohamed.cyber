@@ -5,54 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mohamed Yacine Boucheteur | Cybersecurity Professional</title>
     <style>
-        :root {/* ألوان أكثر حداثة واحترافية */
-        --main-color: #10b981;    /* أخضر زمردي هادئ واحترافي */
-        --bg-color: #0f172a;      /* أزرق ليلي غامق جداً بدلاً من الأسود الصرف */
-        --card-bg: #1e293b;      /* لون البطاقات ليكون متميزاً عن الخلفية */
-        --text-color: #f8fafc;    /* أبيض ناصع للنصوص */
-        --accent-color: #34d399;  /* لون تمييز أفتح قليلاً */
-        --text-muted: #94a3b8;    /* لون للنصوص الثانوية */
-    }
+        :root {
+            --main-color: #10b981;
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-color: #f8fafc;
+            --text-muted: #94a3b8;
+        }
 
-    body {
-        font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-        background-color: var(--bg-color);
-        color: var(--text-color);
-        margin: 0;
-        line-height: 1.6;
-        -webkit-font-smoothing: antialiased; /* لجعل الخط يبدو أنعم */
-    }
-
-    /* تحسين شكل بطاقة المشروع (Forensic Audit) */
-    .project-card {
-        background: var(--card-bg);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 12px;
-        padding: 24px;
-        margin: 20px 0;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease;
-    }
-
-    .project-card:hover {
-        transform: translateY(-5px); /* تأثير حركة بسيط عند تمرير الماوس */
-        border-color: var(--main-color);
-    }
-
-    h2, h3 {
-        color: var(--main-color);
-        font-weight: 600;
-    }
-
-    .tools-list {
-        color: var(--text-muted);
-        font-style: italic;
-        font-size: 0.9em;
-        border-bottom: 1px solid var(--card-bg);
-        padding-bottom: 10px;
-        margin-bottom: 15px;
-    }
-</style>
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-color); color: var(--text-color); margin: 0; line-height: 1.6; }
+        
+        nav { background: #020617; padding: 1rem; text-align: center; position: sticky; top: 0; }
+        nav a { color: var(--main-color); margin: 0 15px; text-decoration: none; font-weight: bold; }
+        
+        section { max-width: 900px; margin: 40px auto; padding: 20px; }
+        h1, h2 { color: var(--main-color); }
+        
+        .card { background: var(--card-bg); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 24px; margin: 20px 0; }
+        
+        .lab-project { margin-bottom: 40px; border-bottom: 1px solid #333; padding-bottom: 20px; }
+        img { max-width: 100%; border-radius: 8px; border: 1px solid #444; }
+        
+        footer { text-align: center; padding: 40px; color: var(--text-muted); }
     </style>
 </head>
 <body>
@@ -68,268 +42,58 @@
 
     <section id="about">
         <h1>Mohamed Yacine Boucheteur</h1>
-        <p style="font-size: 1.3rem; color: var(--main-color);">With 10 years of intensive experience in the maintenance and operation of radar and complex electronic systems, I possess a unique ability to troubleshoot and safeguard technical infrastructure in high-stakes environments.
-Driven by a passion for securing digital landscapes, I have transitioned into the cybersecurity field. I am currently honing my expertise in Security Operations Center (SOC) analysis, incident response, and vulnerability assessment. I bridge the gap between rigorous technical discipline gained from field operations and modern cybersecurity methodologies, utilizing tools such as Kali Linux, Wireshark, Splunk, and Python.
-I am committed to applying my analytical mindset to protect digital assets and thrive in challenging security environments./p>
-        <p></p>
+        <p style="font-size: 1.2rem;">With 10 years of intensive experience in radar and electronic systems, I have transitioned into cybersecurity. Specializing in SOC analysis, incident response, and vulnerability assessment.</p>
     </section>
 
     <section id="military">
         <h2>🎖️ Professional Military Experience</h2>
         <div class="card">
-            <h3>Former Non-Commissioned Officer (NCO) / Sergeant</h3>
-            <p><span class="badge">10 Years Experience</span> Algerian Army</p>
+            <h3>Former Non-Commissioned Officer (NCO)</h3>
             <ul>
-                <li>Demonstrated exceptional leadership and discipline in high-pressure environments.</li>
-                <li>Expertise in operational security, strategic planning, and team management.</li>
-                <li>Proven track record of maintaining rigorous standards and information integrity.</li>
+                <li>Demonstrated exceptional leadership and discipline.</li>
+                <li>Expertise in operational security and strategic planning.</li>
             </ul>
         </div>
     </section>
-    <section class="project-card">
-    <h3><i class="fas fa-rss"></i> آخر أخبار الهجمات السيبرانية</h3>
-    <p class="tools-list">تحديثات مباشرة من مصادر عالمية</p>
-    
-    <rssapp-list id="tQ3au21o3HbZHAC2"></rssapp-list>
-    <script src="https://widget.rss.app/v1/list.js" type="text/javascript" async></script>
-</section>
 
     <section id="lab">
         <h2>🔬 Cybersecurity Home Lab</h2>
-        <div class="grid">
-            <div class="card">
-                <div class="lab-project" style="margin-bottom: 40px; border-bottom: 1px solid #333; padding-bottom: 20px;">
-    <h3 style="color: #00ff00;">🔍 Lab: Home Network Security Audit</h3>
-    <p><em>Tools: Nmap, Zenmap, VMware</em></p>
-     <!-- Mobile Security Lab Section -->
-<div class="lab-project" style="margin-bottom: 40px; border-bottom: 1px solid #333; padding-bottom: 20px;">
-    <h3 style="color: #00ff00;">🔍 Lab: Mobile Traffic Analysis & Forensic Audit</h3>
-    <p><em>Tools: Wireshark, ADB (Android Debug Bridge), Npcap, Androiddump</em></p>
-
-    <div class="lab-content">
-        <h4>1. Mobile Endpoint Integration</h4>
-        <p>Connecting a Redmi 9A device via ADB to perform real-time packet sniffing and system log analysis.</p>
-
-        <h4>2. Traffic & Log Analysis</h4>
-        <p>Monitoring background processes and third-party app behaviors (Facebook, WhatsApp, Telegram) using advanced Wireshark display filters.</p>
         
-        <!-- استبدل اسم الصورة بالاسم الذي ستحفظ به صورتك الأخيرة -->
-        <img src="mobile-analysis.png" alt="Wireshark Android Logcat Analysis" style="width: 100%; max-width: 600px; border: 1px solid #444; margin-top: 10px;">
-<ul style="margin-top: 20px; color: #ccc;">
-    <li><strong>Security Audit:</strong> Identified multiple <code>Permission Denied</code> events.</li>
-    <li><strong>Forensic Filtering:</strong> Isolated package behaviors using advanced Wireshark filters.</li>
-</ul>
-        <ul>
-            <li><strong>Security Audit:</strong> Identified multiple <code>Permission Denied</code> events and <code>SELinux</code> policy violations.</li>
-            <li><strong>Package Monitoring:</strong> Analyzed <code>com.facebook.appmanager</code> background activities and system resource requests.</li>
-            <li><strong>Forensic Filtering:</strong> Applied <code>frame contains</code> filters to isolate credential-related strings and system errors.</li>
-        </ul>
-    </div>
-</div>
-    <a href="https://github.com/mohamedyacineboucheteur-ui/Mobile-Forensics-Lab" target="_blank" style="...">
-    📁 View Full Log Report on GitHub
-</a>        
-    
-</div>
-    
-    <div class="lab-content">
-        <h4>1. Services Enumeration</h4>
-        <p>Scanning the default gateway (192.16...) to identify active services.</p>
-
-        <p>Scanning the target (82.2.1.) to identify active services and version banners.</p>
-<img src="linux.png" alt="Nmap Scan Results" style="width: 100%; max-width: 600px; border: 1px solid #444; margin-top: 10px;">
-        <ul>
-  <li><strong>Information Disclosure:</strong> Exposed service versions (OpenSSH 8.7, Exim 4.99.1).</li>
-  <li><strong>Insecure Port Configuration:</strong> Port 3306 (MySQL) open to the public internet.</li>
-  <li><strong>RPC Exposure:</strong> Port 111 (rpcbind) active, leaking system metadata.</li>
-</ul>
-    
-
-        <h4>2. Vulnerability Discovery (CVE-2011-3192)</h4>
-        <p>Detected a critical Denial of Service vulnerability in the router firmware using NSE scripts.</p>
-        <img src="vuln_discovery (2).png" alt="Vulnerability Report" style="width: 100%; max-width: 600px; border: 1px solid #444; border-radius: 5px; margin: 10px 0;">
-<!-- قسم التقارير المباشر -->
-<section id="reports">
-    <h3>التقارير التقنية</h3>
-    <div class="report-box">
-        <p>تحليل ثغرة CVE-2011-3192:</p>
-        <a href="Technical_Report_CVE-2011-3192.pdf" target="_blank" class="btn-report">
-            تحميل التقرير (PDF)
-        </a>
-    </div>
-</section>
-        
-        <h4>3. Lab Hardening</h4>
-        <p>Configured Virtual Machines to <strong>NAT Mode</strong> for secure environment isolation.</p>
-
-        <div class="lab-project" style="margin-bottom: 40px; border-bottom: 1px solid #333; padding-bottom: 20px;">
-    <h3 style="color: #00ff00;">🔍 Lab: Cisco Troubleshooting Guide based on OSI Model</h3>
-    <p><em>الهدف: توثيق خطوات استكشاف وإصلاح الأخطاء المنهجية في بيئات سيسكو.</em></p>
-
-    <div class="lab-content">
-        <center>
-            <img src="cisco-troubleshooting.jpg" 
-                 alt="Cisco Troubleshooting Guide based on OSI Model" 
-                 style="width: 100%; max-width: 600px; border: 1px solid #444; border-radius: 8px; margin: 20px 0;">
-        </center>
-        
-        <h4>خطوات التحقق المنهجي (Initial Checks):</h4>
-        <ul>
-            <li>تعريف المشكلة بدقة (Define the Problem).</li>
-            <li>جمع المعلومات التقنية اللازمة (Gather Information).</li>
-            <li>تحديد التغييرات الأخيرة في الشبكة (Identify Recent Changes).</li>
-        </ul>
-
-        <h4>التسلسل الهرمي للإصلاح:</h4>
-        <p>يتبع هذا الدليل تدفقاً منطقياً يبدأ من الطبقة الفيزيائية (Physical Layer) صعوداً إلى طبقة التطبيقات (Application Layer) لضمان حل المشكلات من الجذور.</p>
-    </div>
-</div>
-        <div class="lab-project" style="margin-bottom: 40px; border-bottom: 1px solid #333; padding-bottom: 20px;">
-    <h3 style="color: #00ff00;">🔍 Lab: Network Traffic & TCP Protocol Analysis</h3>
-    <p><em>Tools: Wireshark, TCPDump, Network Monitoring</em></p>
-
-    <div class="lab-content">
-        <h4>1. Traffic Capture & Inspection</h4>
-        <p>Capturing live HTTPS traffic on port 443 to monitor handshake stability and data integrity.</p>
-
-        <h4>2. Advanced TCP Diagnostics</h4>
-        <p>Identified critical network patterns: <strong>TCP Dup ACKs</strong> and <strong>Spurious Retransmissions</strong>, indicating packet loss and congestion issues in the communication path.</p>
-        
-        <img src="wireshark_analysis.png" alt="Wireshark TCP Analysis" style="width: 100%; max-width: 600px; border: 1px solid #444; margin: 10px 0; border-radius: 5px;">
-
-        <h4>3. Remediation & Optimization</h4>
-        <p>Proposed network tuning strategies to minimize latency and ensure reliable data delivery for critical infrastructures.</p>
-        
-        <a href="https://www.linkedin.com/pulse/analyse-du-trafic-r%25C3%25A9seau-boucheteur-mohamed-yacine-w6vpf" target="_blank" style="color: #00ff00; text-decoration: none; border: 1px solid #00ff00; padding: 5px 10px; border-radius: 3px; font-size: 0.8em;">Read Full Article on LinkedIn</a>
-    </div>
-</div>
-
-        <div class="lab-analysis-step" style="margin-top: 25px; padding-top: 15px; border-top: 1px dashed #444;">
-    <h4 style="color: #00d4ff;">🌐 Geographic & Ownership Identification (OSINT)</h4>
-    <p>After identifying the anomalies, I performed an <strong>OSINT lookup</strong> on the target IP to verify the source and reputation of the traffic.</p>
-    
-    <ul style="list-style: none; padding-left: 10px; color: #ccc;">
-        <li>🔹 <strong>ASN:</strong> AS15169 — Google LLC</li>
-        <li>🔹 <strong>Domain:</strong> google.com</li>
-        <li>🔹 <strong>Location:</strong> External Hosting Infrastructure</li>
-    </ul>
-
-    <img src="ip_analysis_report.png" alt="IP Ownership Analysis" style="width: 100%; max-width: 550px; border: 1px solid #00d4ff; margin: 15px 0; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 212, 255, 0.2);">
-
-    <p style="font-size: 0.9em; color: #888;"><em>Conclusion: The diagnostic confirms that the TCP Retransmission issues occur within the local network path or ISP, as the destination is a high-availability Google infrastructure.</em></p>
-</div>
-    </div>
-</div>
-                <h3>Penetration Testing Environment</h3>
-                <p>Equipped with <strong>Kali Linux</strong> and <strong>Parrot OS</strong> in a virtualized VMware environment. Focused on practicing advanced reconnaissance, vulnerability assessment, and exploitation techniques.</p>
-            </div>
-        </div>
-            
-    </div>
-<section id="technical-reports">
-    <h2>التقارير التقنية</h2>
-    <div class="report-card">
-        <h3>تقرير: بروتوكول TR-069 وآلية الاستجابة الأمنية</h3>
-        <p>تحليل شامل لمنهجية إدارة أجهزة المودم عن بُعد ومعالجة ثغرة CVE-2011-3192.</p>
-        <a href="TR-069_Technical_Report_v2.pdf" target="_blank" class="btn">عرض التقرير (PDF)</a>
-    </div>
-</section>
-    <section id="certs" style="padding: 40px 20px;">
-    <h2 style="color: var(--main-color); text-align: center; margin-bottom: 30px;">Professional Certifications</h2>
-    
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px;">
-        
-        <div class="card" style="background: var(--card-bg); border: 1px solid var(--main-color); padding: 15px; border-radius: 10px; text-align: center;">
-            <img src="google-cert.png" alt="Google Cybersecurity Certificate" style="width: 100%; border-radius: 5px; margin-bottom: 10px;">
-            <h3 style="color: var(--main-color);">Foundations of Cybersecurity</h3>
-            <p>Google | Jan 24, 2026</p>
-            <a href="https://coursera.org/verify/B16XSFEL6FNI" target="_blank" style="color: var(--accent-color); text-decoration: none; font-weight: bold;">Verify Online</a>
+        <div class="lab-project">
+            <h3 style="color: #00ff00;">🔍 Mobile Traffic Analysis</h3>
+            <p>Using Wireshark & ADB for Android forensic audit.</p>
+            <img src="mobile-analysis.png" alt="Forensic Analysis">
         </div>
 
-        <div class="card" style="background: var(--card-bg); border: 1px solid var(--main-color); padding: 15px; border-radius: 10px; text-align: center;">
-            <img src="Getting_Started_with_Cisco_Packet_Tracer_certificate" alt="Cisco Certificate" style="width: 100%; border-radius: 5px; margin-bottom: 10px;">
-            <h3 style="color: var(--main-color);">Getting Started with Cisco Packet Tracer</h3>
-            <p>Cisco Academy | Mar 13, 2026</p>
+        <div class="lab-project">
+            <h3 style="color: #00ff00;">🔍 Network Protocol Analysis</h3>
+            <p>Capturing live traffic and monitoring TCP handshakes.</p>
+            <img src="wireshark_analysis.png" alt="TCP Analysis">
         </div>
+    </section>
 
-        <div class="card" style="background: var(--card-bg); border: 1px solid var(--accent-color); padding: 15px; border-radius: 10px; text-align: center;">
-            <div style="height: 150px; display: flex; align-items: center; justify-content: center; font-size: 3rem; background: #222; border-radius: 5px; margin-bottom: 10px;">
-                🗂️
-            </div>
-            <h3 style="color: var(--accent-color);">CCNA Preparation</h3>
-            <p><strong>Method:</strong> Anki Active Recall</p>
-            <p style="color: var(--accent-color);">Current: Day 01 - Network Devices</p>
-            <p style="font-size: 0.8rem; color: #888;">Jeremy's IT Lab Curriculum</p>
+    <section id="certs">
+        <h2>Professional Certifications</h2>
+        <div class="card">
+            <h3>Foundations of Cybersecurity</h3>
+            <p>Google | Jan 24, 2026 | <a href="https://coursera.org/verify/B16XSFEL6FNI" target="_blank" style="color: var(--main-color);">Verify Online</a></p>
         </div>
-
-    </div>
-</section>
-    
-    
-
-        
-        
-            
-             
-            
-            
-     
-        
-            
-            
-        
-
-        <div class="card" style="background: var(--card-bg); border: 1px solid var(--accent-color); padding: 15px; border-radius: 10px; text-align: center;">
-            <div style="height: 150px; display: flex; align-items: center; justify-content: center; background: #222; margin-bottom: 10px; border-radius: 5px;">
-                <span style="font-size: 3rem;">🗂️</span>
-            </div>
-            <h3 style="color: var(--accent-color);">CCNA Preparation (Anki)</h3>
-            <p>Current: Day 01 - Network Devices</p>
-            <p style="font-size: 0.8rem; color: #888;">Active Recall Method</p>
-        </div>
-
-    </div>
-</section>
-        
-        
-            
-        
-            
-        
-            
-            
-                
-                
-                
-            
-        
-    
+    </section>
 
     <section id="repo">
         <h2>📂 Technical Projects</h2>
         <div class="card">
-            <h3>Automation & Tools Repository</h3>
-            <p>Developing custom Python scripts for network scanning automation and security auditing.</p>
-             <h3>Automation & Tools Repository</h3>
-<p>Developing custom Python scripts for network scanning automation and security auditing.</p>
-
-<ul>
-  <li><b>Project:</b> Network Scanner Tool (ARP)</li>
-  <li><b>Capabilities:</b> Fast device discovery & MAC address mapping.</li>
-  <li><b>Status:</b> Completed & Documented on GitHub.</li>
-</ul>
-
-<a href="https://github.com/mohamedyacineboucheteur-ui/mohamed.cyber/blob/main/README.md" target="_blank" style="color: #00ff00;">View Full Project & Results →</a>
+            <h3>Network Scanner Tool (ARP)</h3>
+            <p>Custom Python scripts for fast device discovery.</p>
+            <a href="https://github.com/mohamedyacineboucheteur-ui/mohamed.cyber" target="_blank" style="color: #00ff00;">View on GitHub →</a>
         </div>
     </section>
 
     <section id="contact">
         <h2>📧 Get In Touch</h2>
-        <div class="contact-box">
-            <p>Looking for a dedicated security professional? Let's connect.</p>
-            <p>📞 <strong>Phone:</strong> <a href="tel:+213658900112">+213 658 900 112</a></p>
-            <p>✉️ <strong>Email:</strong> <a href="mailto:mohamedyacineboucheteur@gmail.com">mohamedyacineboucheteur@gmail.com</a></p>
-            <p>🌍 <strong>Location:</strong> Algeria (Open to Relocation to EU/Canada)</p>
+        <div class="card">
+            <p>📞 Phone: +213 658 900 112</p>
+            <p>✉️ Email: mohamedyacineboucheteur@gmail.com</p>
         </div>
     </section>
 
