@@ -1,0 +1,19 @@
+# 🛡️ Endpoint Network Analysis: Sysinternals TCPView
+
+This repository documents my hands-on experience in endpoint security and real-time network traffic analysis.
+
+## Analysis Log: Active Connection Monitoring
+As a security enthusiast, I utilize **Sysinternals TCPView** to map active network connections and identify process behavior on the endpoint.
+
+### Observation
+- **Tool:** Sysinternals TCPView
+- **Purpose:** Analyzing outbound traffic and validating process integrity.
+- **Key Finding:** Identifying established connections to trusted infrastructure (e.g., AWS) and validating them through WHOIS/DNS lookups to ensure baseline network security.
+
+## Methodology
+1. **Real-time Monitoring:** Capturing active TCP endpoints.
+2. **Process Validation:** Mapping connections back to system processes (e.g., system services, browser processes).
+3. **Verification:** Validating remote IP addresses to prevent unauthorized data exfiltration.
+
+---
+*Building a secure future, one packet at a time.*
