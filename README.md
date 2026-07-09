@@ -44,18 +44,17 @@ Click on the areas below to explore how I apply these concepts in my daily analy
 - [ ] **[ (Methodical Investiga)](docs/methodical-investigation.md)**
 - [ ] ** (ontinuous Improvement)](docs/continuous-improvement.md)**
 - [ ] **[ (SOC Analyst Role Summary)](docs/soc-role.md)**
-
 ```mermaid
 graph LR
-    A[Strategic SOC Analyst Mindset] --> B[Zero-Trust Mindset]
-    A --> C[Correlation over Isolation]
-    A --> D[Risk-Based Prioritization]
-    A --> E[Methodical Investigation]
-    A --> F[Continuous Improvement]
-    A --> G[SOC Analyst Core Roles]
+A[Strategic SOC Analyst Mindset] --> B[Zero-Trust Mindset]
+A --> C[Correlation over Isolation]
+A --> D[Risk-Based Prioritization]
+A --> E[Methodical Investigation]
+A --> F[Continuous Improvement]
+A --> G[SOC Analyst Core Roles]
 ```
 س*Key Insight: Continuous validation of remote endpoints is critical for minimizing the risk of unauthorized data exfiltration
-.
+
 
 
 
