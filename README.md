@@ -38,20 +38,22 @@ This conceptual map guides my approach to threat analysis, prioritizing business
 ### 🗺️ Operational Framework
 Click on the areas below to explore how I apply these concepts in my daily analysis:
 
-- [ ] **[منطق الشك الافتراضي (Zero-Trust Logic)](docs/zero-trust.md)**
-- [ ] **[منطق الارتباط وليس العزل (Correlation vs Isolation)](docs/correlation.md)**
-- [ ] **[منطق المخاطرة قبل التقنية (Risk-Based Analysis)](docs/risk-analysis.md)**
-- [ ] **[منطق التحقيق المنهجي (Methodical Investigation)](docs/methodical-investigation.md)**
-- [ ] **[منطق التطور المستمر (Continuous Improvement)](docs/continuous-improvement.md)**
-- [ ] **[خلاصة دور المحلل (SOC Analyst Role Summary)](docs/soc-role.md)**
+- [ ] **[(Zero-Trust Logic)](docs/zero-trust.md)**
+- [ ] **[(Correlation vs Isolation)](docs/correlation.md)**
+- [ ] **[ (Risk-Based Analysis)](docs/risk-analysis.md)**
+- [ ] **[ (Methodical Investiga)](docs/methodical-investigation.md)**
+- [ ] ** (ontinuous Improvement)](docs/continuous-improvement.md)**
+- [ ] **[ (SOC Analyst Role Summary)](docs/soc-role.md)**
 
--graph LR
+```mermaid
+graph LR
     A[Strategic SOC Analyst Mindset] --> B[Zero-Trust Mindset]
     A --> C[Correlation over Isolation]
     A --> D[Risk-Based Prioritization]
     A --> E[Methodical Investigation]
     A --> F[Continuous Improvement]
     A --> G[SOC Analyst Core Roles]
-*I am actively applying these principles to real-world threat hunting and infrastructure security.*
-*Key Insight: Continuous validation of remote endpoints is critical for minimizing the risk of unauthorized data exfiltration.*
+```
+    A --> G[SOC Analyst Core Roles]
 
+*Key Insight: Continuous validation of remote endpoints is critical for minimizing the risk of unauthorized data exfiltration.
