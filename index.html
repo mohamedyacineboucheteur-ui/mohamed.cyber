@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohamed Yacine Boucheteur | Cybersecurity Professional</title>
+    <style>
+        :root {
+            --main-color: #10b981;
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-color: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-color); color: var(--text-color); margin: 0; line-height: 1.6; }
+        
+        nav { background: #020617; padding: 1rem; text-align: center; position: sticky; top: 0; }
+        nav a { color: var(--main-color); margin: 0 15px; text-decoration: none; font-weight: bold; }
+        
+        section { max-width: 900px; margin: 40px auto; padding: 20px; }
+        h1, h2 { color: var(--main-color); }
+        
+        .card { background: var(--card-bg); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 24px; margin: 20px 0; }
+        
+        .lab-project { margin-bottom: 40px; border-bottom: 1px solid #333; padding-bottom: 20px; }
+        img { max-width: 100%; border-radius: 8px; border: 1px solid #444; }
+        
+        footer { text-align: center; padding: 40px; color: var(--text-muted); }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#about">About</a>
+        <a href="#military">Military Exp</a>
+        <a href="#lab">Cyber Lab</a>
+        <a href="#certs">Certs</a>
+        <a href="#repo">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <section id="about">
+        <h1>Mohamed Yacine Boucheteur</h1>
+        <p style="font-size: 1.2rem;">With 10 years of intensive experience in radar and electronic systems, I have transitioned into cybersecurity. Specializing in SOC analysis, incident response, and vulnerability assessment.</p>
+    </section>
+
+    <section id="military">
+        <h2>🎖️ Professional Military Experience</h2>
+        <div class="card">
+            <h3>Former Non-Commissioned Officer (NCO)</h3>
+            <ul>
+                <li>Demonstrated exceptional leadership and discipline.</li>
+                <li>Expertise in operational security and strategic planning.</li>
+            </ul> <img src="SOC_Map 1.png">
+        </div>
+    </section>
+
+    <section id="lab">
+        <h2>🔬 Cybersecurity Home Lab</h2>
+        
+        <div class="lab-project">
+            <h3 style="color: #00ff00;">🔍 Mobile Traffic Analysis</h3>
+            <p>Using Wireshark & ADB for Android forensic audit.</p>
+            <img src="mobile-analysis.png" alt="Forensic Analysis">
+        </div>
+
+        <!-- قسم تحليل الثغرات في Wazuh -->
+<section>
+    <h3>تحليل الثغرات الأمنية باستخدام Wazuh</h3>
+    <p>لقطات شاشة توضح لوحة قيادة اكتشاف الثغرات وتفاصيل الحزم المتأثرة في بيئة المختبر.</p>
+    <div class="project-description">
+    <h3>Wazuh Vulnerability Detection Analysis</h3>
+    <p>
+        "This dashboard illustrates my proactive approach to vulnerability management within my home lab. 
+        By leveraging Wazuh's vulnerability detection module, I continuously monitor endpoints to identify 
+        and assess security risks. 
+    </p>
+    <p>
+        As shown in the dashboard, I have successfully identified 7 medium-severity vulnerabilities 
+        related to outdated software components (such as Python and QuickTime versions) on my 
+        Windows 10 endpoints. My workflow involves not just detecting these issues, but prioritizing 
+        them based on their CVE scores to ensure effective remediation, which is a core skill for 
+        any SOC Analyst L1."
+    </p>
+</div>
+    
+    <!-- الصورة الأولى: لوحة القيادة -->
+    <img src="Wazuh_Dashboard.png" alt="لوحة قيادة اكتشاف الثغرات في Wazuh" style="width:100%; max-width:900px; margin-bottom: 20px;">
+    
+    <!-- الصورة الثانية: قائمة التفاصيل -->
+    <img src="Wazuh_Vulnerabilities.png" alt="تفاصيل الثغرات والحزم المتأثرة" style="width:100%; max-width:900px;">
+</section>
+        
+        <div class="lab-project">
+            <h3 style="color: #00ff00;">🔍 Network Protocol Analysis</h3>
+            <p>Capturing live traffic and monitoring TCP handshakes.</p>
+            <img src="wireshark_analysis.png" alt="TCP Analysis">
+        </div>
+    </section>
+
+<div class="lab-project">
+    <h3 style="color: #00ff00;">🔍 Network Connection Monitoring</h3>
+    <p>Analyse du trafic réseau en temps réel avec TCPView : Cette capture illustre une phase de surveillance active des connexions réseau au sein de mon environnement de laboratoire. En utilisant TCPView, j'analyse les processus en cours, tels que les interactions du scanner de vulnérabilités Nessus (nessusd.exe) et l'activité des navigateurs, afin de cartographier les flux de données et d'identifier les communications établies.</p>
+    
+    <!-- تأكد من أن اسم الملف أدناه يطابق اسم الصورة الحقيقي تماماً -->
+    <img src="Screenshot_2026-07-16_023239.png" alt="Analyse des connexions avec TCPView" style="width:100%; max-width:900px;">
+</div>
+
+    <section id="certs">
+        <h2>Professional Certifications</h2>
+        <div class="card">
+            <h3>Foundations of Cybersecurity</h3>
+            <p>Google | Jan 24, 2026 | <a href="https://coursera.org/verify/B16XSFEL6FNI" target="_blank" style="color: var(--main-color);">Verify Online</a></p>
+        </div>
+    </section>
+
+    
+    <section id="research">
+    <h2>🛡️ Vulnerability Research</h2>
+    <div class="card">
+        <h3>Residential Modem Security Review</h3>
+        <p>Conducted a technical security review and vulnerability assessment of a residential modem. Identified critical exposure to CVE-2011-3192 (Apache ByteRange DoS).</p>
+        <img src="vuln_discovery 1.png" alt="CVE-2011-3192 Discovery">
+        <p><em>Outcome: Documented technical analysis and reporting of findings.</em></p>
+    </div>
+</section>
+
+    <section id="repo">
+        <h2>📂 Technical Projects</h2>
+        <div class="card">
+            <h3>Network Scanner Tool (ARP)</h3>
+            <p>Custom Python scripts for fast device discovery.</p>
+            <a href="https://github.com/mohamedyacineboucheteur-ui/mohamed.cyber" target="_blank" style="color: #00ff00;">View on GitHub →</a>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>📧 Get In Touch</h2>
+        <div class="card">
+            <p>📞 Phone: +213 658 900 112</p>
+            <p>✉️ Email: mohamedyacineboucheteur@gmail.com</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>Mohamed Yacine Boucheteur | © 2026</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+# Network Scanner Tool (ARP)
+Custom Python tool for network auditing and device discovery.
+
+## Features
+- Fast device discovery using ARP requests.
+- Maps IP addresses to MAC addresses.
+- Useful for home and office network security auditing.
+
+## Implementation Result
+![Network Scan Results](Scan%20Results.png)
+
+## Languages
+- **English**: Developed a custom scanner to increase visibility of connected assets.
+- **Français**: Développement d'un outil de scan réseau pour la détection d'appareils actifs.
+
+## 🔍 Security Analysis: Endpoint Network Verification
+Documenting the process of validating active network connections to identify potential anomalies.
+
+### Analysis Details
+- **Tool:** Sysinternals TCPView
+- **Objective:** Verify process integrity and validate destination endpoints.
+- **Methodology:**
+    1. Identification of active outbound connections via `chrome.exe` on port 443.
+    2. Execution of real-time WHOIS lookup on suspected remote IP addresses.
+    3. Cross-referencing destination domains (e.g., `facebook.com`) against known infrastructure metadata.
+- **Finding:** The connection originated from a trusted domain (Facebook/Meta infrastructure). The traffic pattern is consistent with standard browser activity.
+- ![TCPView Analysis](Screenshot%202026-07-09%20003125.png)
+
+---# 🛡️ Mohamed Yacine Boucheteur | SOC Analyst Portfolio
+
+## My Strategic SOC Mindset
+This conceptual map guides my approach to threat analysis, prioritizing business risk and logical correlation over isolated technical alerts.
+
+![SOC Mindset Map](SOC_Map.png)
+
+---
+
+### 🗺️ Operational Framework
+Click on the areas below to explore how I apply these concepts in my daily analysis:
+
+- [ ] **[(Zero-Trust Logic)](docs/zero-trust.md)**
+- [ ] **[(Correlation vs Isolation)](docs/correlation.md)**
+- [ ] **[ (Risk-Based Analysis)](docs/risk-analysis.md)**
+- [ ] **[ (Methodical Investiga)](docs/methodical-investigation.md)**
+- [ ] ** (ontinuous Improvement)](docs/continuous-improvement.md)**
+- [ ] **[ (SOC Analyst Role Summary)](docs/soc-role.md)**
+```mermaid
+graph LR
+A[Strategic SOC Analyst Mindset] --> B[Zero-Trust Mindset]
+A --> C[Correlation over Isolation]
+A --> D[Risk-Based Prioritization]
+A --> E[Methodical Investigation]
+A --> F[Continuous Improvement]
+A --> G[SOC Analyst Core Roles]
+```
+
+
+
+
+
+
+
