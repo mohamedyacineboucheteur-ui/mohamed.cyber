@@ -41,7 +41,7 @@ async function loadLesson(fileName) {
         container.innerHTML = '<p class="text-cyber-blue text-center"><i class="fa-solid fa-spinner fa-spin ml-2"></i>جاري تحميل الدرس...</p>';
         
         // جلب ملف الـ Markdown من المجلد
-        const response = await fetch(`network-security/${fileName}.md`);
+        const response = await fetch(`network-security/packet-filtering-acls-guide.md`);
         if (!response.ok) throw new Error("تعذر جلب ملف الدرس");
         
         const markdownText = await response.text();
