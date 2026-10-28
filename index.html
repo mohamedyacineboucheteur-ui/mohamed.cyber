@@ -363,33 +363,37 @@
     <!-- JavaScript Engine -->
     <script>
         function switchTab(tab) {
-            document.getElementById('tab-projects').classList.add('hidden');
-            document.getElementById('tab-library').classList.add('hidden');
-            document.getElementById('tab-creds').classList.add('hidden');
-            document.getElementById('tab-editor').classList.add('hidden');
+    // إخفاء جميع الأقسام أولاً
+    document.getElementById('tab-cv').classList.add('hidden');
+    document.getElementById('tab-projects').classList.add('hidden');
+    document.getElementById('tab-library').classList.add('hidden');
+    document.getElementById('tab-creds').classList.add('hidden');
+    document.getElementById('tab-editor').classList.add('hidden');
 
-            document.getElementById('btn-projects-tab').className = "px-3 py-2 rounded-md transition-all text-cyber-muted hover:text-white";
-            document.getElementById('btn-library-tab').className = "px-3 py-2 rounded-md transition-all text-cyber-muted hover:text-white";
-            document.getElementById('btn-creds-tab').className = "px-3 py-2 rounded-md transition-all text-cyber-muted hover:text-white";
-            document.getElementById('btn-editor-tab').className = "px-3 py-2 rounded-md transition-all text-cyber-muted hover:text-white";
+    // إزالة التنسيق النشط من جميع الأزرار
+    document.getElementById('btn-cv-tab').className = "px-3 py-2 rounded-md transition-all text-cyber-muted hover:text-white";
+    document.getElementById('btn-projects-tab').className = "px-3 py-2 rounded-md transition-all text-cyber-muted hover:text-white";
+    document.getElementById('btn-library-tab').className = "px-3 py-2 rounded-md transition-all text-cyber-muted hover:text-white";
+    document.getElementById('btn-creds-tab').className = "px-3 py-2 rounded-md transition-all text-cyber-muted hover:text-white";
+    document.getElementById('btn-editor-tab').className = "px-3 py-2 rounded-md transition-all text-cyber-muted hover:text-white";
 
-            if (tab === 'projects') {
-                document.getElementById('tab-projects').classList.remove('hidden');
-                document.getElementById('btn-projects-tab').className = "px-3 py-2 rounded-md transition-all text-cyber-blue bg-cyber-card shadow";
-            } else if (tab === 'library') {
-                document.getElementById('tab-library').classList.remove('hidden');
-                document.getElementById('btn-library-tab').className = "px-3 py-2 rounded-md transition-all text-cyber-blue bg-cyber-card shadow";
-            } else if (tab === 'creds') {
-                document.getElementById('tab-creds').classList.remove('hidden');
-                document.getElementById('btn-creds-tab').className = "px-3 py-2 rounded-md transition-all text-cyber-blue bg-cyber-card shadow";
-            } else if (tab === 'editor') {
-                document.getElementById('tab-editor').classList.remove('hidden');
-                document.getElementById('btn-editor-tab').className = "px-3 py-2 rounded-md transition-all text-cyber-blue bg-cyber-card shadow";
-            }
-        }
-if (tab === 'cv') {
-    document.getElementById('tab-cv').classList.remove('hidden');
-    document.getElementById('btn-cv-tab').className = "px-3 py-2 rounded-md transition-all text-cyber-blue bg-cyber-card shadow";
+    // إظهار القسم المطلوب وتنشيط زرّه
+    if (tab === 'cv') {
+        document.getElementById('tab-cv').classList.remove('hidden');
+        document.getElementById('btn-cv-tab').className = "px-3 py-2 rounded-md transition-all text-cyber-blue bg-cyber-card shadow";
+    } else if (tab === 'projects') {
+        document.getElementById('tab-projects').classList.remove('hidden');
+        document.getElementById('btn-projects-tab').className = "px-3 py-2 rounded-md transition-all text-cyber-blue bg-cyber-card shadow";
+    } else if (tab === 'library') {
+        document.getElementById('tab-library').classList.remove('hidden');
+        document.getElementById('btn-library-tab').className = "px-3 py-2 rounded-md transition-all text-cyber-blue bg-cyber-card shadow";
+    } else if (tab === 'creds') {
+        document.getElementById('tab-creds').classList.remove('hidden');
+        document.getElementById('btn-creds-tab').className = "px-3 py-2 rounded-md transition-all text-cyber-blue bg-cyber-card shadow";
+    } else if (tab === 'editor') {
+        document.getElementById('tab-editor').classList.remove('hidden');
+        document.getElementById('btn-editor-tab').className = "px-3 py-2 rounded-md transition-all text-cyber-blue bg-cyber-card shadow";
+    }
 }
         async function fetchAndDisplayPost(folder, filename) {
             const container = document.getElementById('viewer-container');
