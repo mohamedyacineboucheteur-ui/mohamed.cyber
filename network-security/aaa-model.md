@@ -9,7 +9,7 @@ As a security analyst, understanding AAA is crucial for designing secure network
 
 ## 2. The Three Pillars of AAA
 
-![AAA Framework](../network-security/aaa-model.png)
+![AAA Framework](./aaa-model.png)
 
 ### A. Authentication (التحقق من الهوية) - "Who is the User"
 * **Definition:** The process of verifying the identity of a user, device, or system trying to access the network.
