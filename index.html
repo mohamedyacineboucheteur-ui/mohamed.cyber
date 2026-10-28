@@ -351,10 +351,73 @@
                         </div>
                     </div>
                 </div>
-                <a href="network-security/access-control.md">
-    <h3 class="text-white font-bold text-sm">Access Control Models & Principles</h3>
-    <p class="text-xs text-cyber-muted mt-1">شرح مفصل لنماذج التحكم في الوصول (MAC, DAC, NDAC) ومبادئ Least Privilege.</p>
-</a>
+             <!-- قسم عرض درس Access Control Models & Principles -->
+<div class="bg-cyber-card border border-cyber-border rounded-xl p-6 md:p-8 space-y-6 shadow-2xl">
+    
+    <!-- رأس المقال -->
+    <div class="border-b border-cyber-border pb-4 space-y-2">
+        <div class="flex items-center space-x-3 space-x-reverse">
+            <div class="w-10 h-10 rounded-lg bg-cyber-blue/10 border border-cyber-blue/30 flex items-center justify-center text-cyber-blue text-xl">
+                <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <h1 class="text-2xl md:text-3xl font-bold text-white">Access Control Models & Principles</h1>
+        </div>
+        <p class="text-xs md:text-sm text-cyber-muted">شرح مفصل لنماذج التحكم في الوصول (MAC, DAC, NDAC) ومبادئ Least Privilege و Separation of Duties.</p>
+    </div>
+
+    <!-- المحتوى الداخلي -->
+    <div class="space-y-6 text-sm text-gray-300 leading-relaxed">
+        
+        <!-- القسم 1 -->
+        <div class="space-y-3">
+            <h2 class="text-lg font-bold text-cyber-blue flex items-center space-x-2 space-x-reverse">
+                <span>1. مقدمة في التحكم في الوصول (Access Control)</span>
+            </h2>
+            <p>
+                يتضمن التحكم في الوصول تنظيم وإدارة الوصول إلى موارد الشبكة، المعلومات، الأنظمة، والبيانات. منCrucial (البالغ الأهمية) لأي منظمة تطبيق أدوات التحكم المناسبة لحماية أصولها ومعلوماتها. يجب على المحلل الأمني (Security Analyst) فهم النماذج الأساسية المختلفة المستخدمة داخل المؤسسة لتنفيذ هذه الضوابط.
+            </p>
+        </div>
+
+        <!-- القسم 2 -->
+        <div class="space-y-4 pt-4 border-t border-cyber-border/50">
+            <h2 class="text-lg font-bold text-cyber-blue">2. النماذج الثلاثة الأساسية للتحكم في الوصول</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <!-- MAC -->
+                <div class="bg-cyber-dark/50 border border-cyber-border rounded-lg p-4 space-y-2">
+                    <h3 class="font-bold text-white text-base">أ) التحكم الإلزامي (MAC)</h3>
+                    <p class="text-xs text-cyber-muted leading-relaxed">
+                        الأشد صرامة، تستخدمه الجهات الحكومية والعسكرية. يعتمد على تصنيفات أمنية (Top Secret, Secret) وملصقات أمان لا تطابق إلا بتوافق تام لصلاحيات المستخدم.
+                    </p>
+                </div>
+                <!-- DAC -->
+                <div class="bg-cyber-dark/50 border border-cyber-border rounded-lg p-4 space-y-2">
+                    <h3 class="font-bold text-white text-base">ب) التحكم الاختياري (DAC)</h3>
+                    <p class="text-xs text-cyber-muted leading-relaxed">
+                        أكثر مرونة، يعتمد على قوائم التحكم في الوصول (ACLs) المرفقة بالملفات. مالك الملف أو المعلومة هو من يحدد صلاحيات الآخرين (مثل القراءة فقط أو التحكم الكامل).
+                    </p>
+                </div>
+                <!-- NDAC -->
+                <div class="bg-cyber-dark/50 border border-cyber-border rounded-lg p-4 space-y-2">
+                    <h3 class="font-bold text-white text-base">ج) التحكم غير الاختياري (NDAC)</h3>
+                    <p class="text-xs text-cyber-muted leading-relaxed">
+                        يعتمد على الأدوار والمسؤوليات الوظيفية (Role-based). الشركة هي المالكة، والصلاحيات تدار مركزياً من مسؤول النظام (مثل السماح للمحلل بقراءة سجلات الجدار الناري فقط).
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- القسم 3 -->
+        <div class="space-y-3 pt-4 border-t border-cyber-border/50">
+            <h2 class="text-lg font-bold text-cyber-blue">3. المبادئ الأساسية للتحكم في الوصول</h2>
+            <ul class="list-disc list-inside space-y-2 text-xs md:text-sm text-cyber-muted">
+                <li><strong class="text-white">مبدأ أقل امتياز (Least Privilege):</strong> منح المستخدمين والعمليات الحد الأدنى فقط من الصلاحيات والوقت اللازم لإنجاز المهام، مما يقلل أضرار أي اختراق محتمل.</li>
+                <li><strong class="text-white">فصل الواجبات (Separation of Duties):</strong> تقسيم المهام الحساسة على أكثر من شخص لمنع الاحتيال والأخطاء الفردية وخلق رقابة داخلية صارمة.</li>
+            </ul>
+        </div>
+
+    </div>
+</div>
                 <div class="lg:col-span-2">
                     <div id="viewer-container" class="bg-cyber-card border border-cyber-border rounded-xl p-6 min-h-[500px]">
                         <div class="text-center py-20 text-cyber-muted space-y-3">
