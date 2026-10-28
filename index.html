@@ -12,7 +12,49 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Font Inter / Cairo -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+<!-- قسم عرض المكتبة والدروس الديناميكية -->
+<div class="bg-cyber-card border border-cyber-border rounded-xl p-6 mt-6">
+    <h3 class="text-lg font-bold text-cyber-blue mb-4">
+        <i class="fa-solid fa-book-open ml-2"></i>مكتبة أمن الشبكات (Network Security)
+    </h3>
+    
+    <!-- قائمة الدروس المتاحة -->
+    <div class="space-y-2 mb-6">
+        <button onclick="loadLesson('packet-filtering-acls-guide')" class="w-full text-right bg-cyber-dark hover:bg-cyber-border border border-cyber-border p-3 rounded-lg text-sm text-white transition flex justify-between items-center">
+            <span>🛡️ تصفية الحزم باستخدام قوائم التحكم في الوصول (ACLs) وتحليل السجلات</span>
+            <span class="text-xs text-cyber-cyan font-mono">2026-10-28</span>
+        </button>
+        <!-- يمكنك إضافة دروسك القادمة هنا بنفس الطريقة تماماً -->
+    </div>
 
+    <!-- صندوق عرض محتوى الدرس المحمل -->
+    <div id="post-container" class="bg-cyber-dark border border-cyber-border p-6 rounded-xl markdown-body">
+        <p class="text-cyber-muted text-center">اختر درساً من القائمة أعلاه لعرضه هنا...</p>
+    </div>
+</div>
+
+<!-- دالة الجلب والتحميل عبر JavaScript -->
+<script>
+async function loadLesson(fileName) {
+    try {
+        const container = document.getElementById('post-container');
+        container.innerHTML = '<p class="text-cyber-blue text-center"><i class="fa-solid fa-spinner fa-spin ml-2"></i>جاري تحميل الدرس...</p>';
+        
+        // جلب ملف الـ Markdown من المجلد
+        const response = await fetch(`network-security/${fileName}.md`);
+        if (!response.ok) throw new Error("تعذر جلب ملف الدرس");
+        
+        const markdownText = await response.text();
+        
+        // تحويل النص وعرضه باستخدام Marked.js
+        container.innerHTML = marked.parse(markdownText);
+        
+    } catch (error) {
+        console.error(error);
+        document.getElementById('post-container').innerHTML = '<p class="text-red-400 text-center">عذراً، حدث خطأ أثناء تحميل الدرس.</p>';
+    }
+}
+</script>
     <script>
         tailwind.config = {
             theme: {
