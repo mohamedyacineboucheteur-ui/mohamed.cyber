@@ -79,6 +79,7 @@
 <button id="btn-cv-tab" onclick="switchTab('cv')" class="px-3 py-2 rounded-md transition-all text-cyber-muted hover:text-white">
     <i class="fa-solid fa-id-card ml-1"></i>السيرة الذاتية (CV)
 </button>
+
 <!-- قسم السيرة الذاتية المتوافق مع محركات البحث وأصحاب العمل -->
 <section id="tab-cv" class="hidden space-y-6">
     <div class="bg-cyber-card border border-cyber-border rounded-xl p-6 sm:p-10 shadow-2xl space-y-8">
@@ -386,7 +387,10 @@
                 document.getElementById('btn-editor-tab').className = "px-3 py-2 rounded-md transition-all text-cyber-blue bg-cyber-card shadow";
             }
         }
-
+if (tab === 'cv') {
+    document.getElementById('tab-cv').classList.remove('hidden');
+    document.getElementById('btn-cv-tab').className = "px-3 py-2 rounded-md transition-all text-cyber-blue bg-cyber-card shadow";
+}
         async function fetchAndDisplayPost(folder, filename) {
             const container = document.getElementById('viewer-container');
             container.innerHTML = '<div class="text-center py-20 text-cyber-blue"><i class="fa-solid fa-spinner fa-spin text-2xl mb-2"></i><p class="text-xs">جاري تحميل المحتوى...</p></div>';
