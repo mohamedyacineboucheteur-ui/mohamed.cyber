@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>المركز السيبراني والمكتبة التقنية | Mohamed Yacine</title>
+    <title>المركز السيبراني والأعمال العملية | Mohamed Yacine</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Marked.js for Markdown Parsing -->
@@ -40,11 +40,7 @@
         }
     </script>
     <style>
-        body {
-            background-color: #0d1117;
-            color: #c9d1d9;
-            font-family: 'Cairo', sans-serif;
-        }
+        body { background-color: #0d1117; color: #c9d1d9; font-family: 'Cairo', sans-serif; }
         ::-webkit-scrollbar { width: 8px; height: 8px; }
         ::-webkit-scrollbar-track { background: #0d1117; }
         ::-webkit-scrollbar-thumb { background: #30363d; border-radius: 4px; }
@@ -83,14 +79,17 @@
 
             <!-- Tab Buttons -->
             <nav class="flex bg-cyber-dark p-1 rounded-lg border border-cyber-border text-sm font-medium flex-wrap gap-1">
-                <button id="btn-library-tab" onclick="switchTab('library')" class="px-4 py-2 rounded-md transition-all text-cyber-blue bg-cyber-card shadow">
-                    <i class="fa-solid fa-books ml-1.5"></i>المكتبة والأرشيف التقني
+                <button id="btn-library-tab" onclick="switchTab('library')" class="px-3 py-2 rounded-md transition-all text-cyber-muted hover:text-white">
+                    <i class="fa-solid fa-book-open ml-1"></i>المكتبة
                 </button>
-                <button id="btn-creds-tab" onclick="switchTab('creds')" class="px-4 py-2 rounded-md transition-all text-cyber-muted hover:text-white">
-                    <i class="fa-solid fa-award ml-1.5"></i>الشهادات والاعتمادات
+                <button id="btn-projects-tab" onclick="switchTab('projects')" class="px-3 py-2 rounded-md transition-all text-cyber-blue bg-cyber-card shadow">
+                    <i class="fa-solid fa-laptop-code ml-1"></i>الأعمال والمختبرات العملية
                 </button>
-                <button id="btn-editor-tab" onclick="switchTab('editor')" class="px-4 py-2 rounded-md transition-all text-cyber-muted hover:text-white">
-                    <i class="fa-solid fa-pen-to-square ml-1.5"></i>محرر الأخبار والدروس
+                <button id="btn-creds-tab" onclick="switchTab('creds')" class="px-3 py-2 rounded-md transition-all text-cyber-muted hover:text-white">
+                    <i class="fa-solid fa-award ml-1"></i>الشهادات
+                </button>
+                <button id="btn-editor-tab" onclick="switchTab('editor')" class="px-3 py-2 rounded-md transition-all text-cyber-muted hover:text-white">
+                    <i class="fa-solid fa-pen-to-square ml-1"></i>المحرر
                 </button>
             </nav>
         </div>
@@ -99,20 +98,91 @@
     <!-- Main Content Area -->
     <main class="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 flex flex-col">
 
-        <!-- TAB 1: Organized Cyber Library (أقسام المكتبة المنظمة) -->
-        <section id="tab-library" class="space-y-6">
-            
-            <div class="text-center max-w-3xl mx-auto space-y-2 mb-8">
+        <!-- TAB 1: Projects & Labs (قسم الأعمال والمختبرات العملية الجديد) -->
+        <section id="tab-projects" class="space-y-8">
+            <div class="text-center max-w-3xl mx-auto space-y-2">
+                <div class="inline-block px-3 py-1 bg-cyber-cyan/10 border border-cyber-cyan/30 rounded-full text-cyber-cyan text-xs font-mono font-bold">
+                    HANDS-ON SECURITY LABS & PROJECTS
+                </div>
+                <h2 class="text-3xl font-extrabold text-white">الأعمال والمختبرات العملية المنجزة</h2>
+                <p class="text-xs text-cyber-muted">تطبيقات عملية ومشاريع ميدانية في إدارة المخاطر، تحليل حركة الشبكات، واكتشاف الثغرات الأمنية.</p>
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                
+                <!-- 1. Wazuh SIEM Project -->
+                <div class="bg-cyber-card border border-cyber-border rounded-xl overflow-hidden hover:border-cyber-blue transition-all duration-300 flex flex-col shadow-xl">
+                    <div class="h-48 bg-cyber-dark overflow-hidden flex items-center justify-center p-3 border-b border-cyber-border">
+                        <img src="SOC_Map.png" alt="Wazuh SIEM Lab" class="w-full h-full object-cover rounded-lg hover:scale-105 transition-all duration-500">
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col justify-between space-y-3">
+                        <div>
+                            <span class="bg-cyber-blue/20 text-cyber-blue border border-cyber-blue/30 text-[10px] font-bold px-2 py-0.5 rounded font-mono">SIEM & Monitoring</span>
+                            <h3 class="text-base font-bold text-white mt-2">إدارة المخاطر ورصد النقاط الطرفية بـ Wazuh</h3>
+                            <p class="text-xs text-cyber-muted leading-relaxed mt-1">
+                                بناء وتنصيب نظام Wazuh SIEM في بيئة افتراضية لمراقبة السجلات الأمنية، كشف التهديدات اللحظية، وتوليد التنبيهات المتقدمة.
+                            </p>
+                        </div>
+                        <div class="pt-3 border-t border-cyber-border/50 text-[11px] text-cyber-cyan font-mono flex items-center justify-between">
+                            <span><i class="fa-solid fa-server ml-1"></i>Wazuh OVA & VirtualBox</span>
+                            <span class="text-green-400 font-bold">مكتمل</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Wireshark Network Analysis Project -->
+                <div class="bg-cyber-card border border-cyber-border rounded-xl overflow-hidden hover:border-cyber-blue transition-all duration-300 flex flex-col shadow-xl">
+                    <div class="h-48 bg-cyber-dark overflow-hidden flex items-center justify-center p-3 border-b border-cyber-border">
+                        <img src="Scan Results.png" alt="Wireshark Analysis" class="w-full h-full object-cover rounded-lg hover:scale-105 transition-all duration-500">
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col justify-between space-y-3">
+                        <div>
+                            <span class="bg-cyber-green/20 text-cyber-green border border-cyber-green/30 text-[10px] font-bold px-2 py-0.5 rounded font-mono">Network Forensics</span>
+                            <h3 class="text-base font-bold text-white mt-2">تحليل حركة الشبكة وفحص الحزم بـ Wireshark</h3>
+                            <p class="text-xs text-cyber-muted leading-relaxed mt-1">
+                                تشريح حركة بيانات الشبكة، دراسة سلوك بروتوكولات الاتصال (مثل HTTPS و TCP Retransmissions)، ورصد الأنشطة المشبوهة.
+                            </p>
+                        </div>
+                        <div class="pt-3 border-t border-cyber-border/50 text-[11px] text-cyber-cyan font-mono flex items-center justify-between">
+                            <span><i class="fa-solid fa-network-wired ml-1"></i>Packet Analysis</span>
+                            <span class="text-green-400 font-bold">مكتمل</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Home Router Vulnerability Project -->
+                <div class="bg-cyber-card border border-cyber-border rounded-xl overflow-hidden hover:border-cyber-blue transition-all duration-300 flex flex-col shadow-xl">
+                    <div class="h-48 bg-cyber-dark overflow-hidden flex items-center justify-center p-3 border-b border-cyber-border">
+                        <img src="1.png" alt="Router Vulnerability Analysis" class="w-full h-full object-cover rounded-lg hover:scale-105 transition-all duration-500">
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col justify-between space-y-3">
+                        <div>
+                            <span class="bg-cyber-accent/20 text-cyber-accent border border-cyber-accent/30 text-[10px] font-bold px-2 py-0.5 rounded font-mono">Vulnerability Assessment</span>
+                            <h3 class="text-base font-bold text-white mt-2">اكتشاف الثغرات الأمنية في موديم منزلي</h3>
+                            <p class="text-xs text-cyber-muted leading-relaxed mt-1">
+                                تحليل ثغرات أجهزة التوجيه (مثل CVE-2011-3192)، فحص إعدادات التكوين، وكتابة تقارير المعالجة وتأمين بروتوكولات الإدارة TR-069.
+                            </p>
+                        </div>
+                        <div class="pt-3 border-t border-cyber-border/50 text-[11px] text-cyber-cyan font-mono flex items-center justify-between">
+                            <span><i class="fa-solid fa-bug ml-1"></i>CVE & Router Hardening</span>
+                            <span class="text-green-400 font-bold">مكتمل</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- TAB 2: Library (المكتبة) -->
+        <section id="tab-library" class="hidden space-y-6">
+            <div class="text-center max-w-3xl mx-auto space-y-2 mb-6">
                 <h2 class="text-2xl font-bold text-white">المكتبة السيبرانية والمراجع الميدانية</h2>
-                <p class="text-xs text-cyber-muted">أرشيف تقني منظم يضم الشروحات الميدانية، تحليلات الشبكات، ومتابعة الأحداث الأمنية.</p>
+                <p class="text-xs text-cyber-muted">أرشيف تقني منظم يضم الشروحات الميدانية وتحليلات الشبكات.</p>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                
-                <!-- القائمة الجانبية للأقسام والدروس (Sidebar) -->
                 <div class="lg:col-span-1 space-y-4">
-                    
-                    <!-- 1. قسم أمن الشبكات (Network Security) -->
                     <div class="bg-cyber-card border border-cyber-border rounded-xl p-4">
                         <div class="flex items-center space-x-2 space-x-reverse text-cyber-cyan font-bold mb-3 pb-2 border-b border-cyber-border">
                             <i class="fa-solid fa-network-wired"></i>
@@ -123,117 +193,55 @@
                                 <span class="truncate">🛡️ تصفية الحزم بـ ACLs وتأمين الموجه</span>
                                 <i class="fa-solid fa-chevron-left text-[10px] text-cyber-muted"></i>
                             </button>
-                            <!-- أضف دروس أمن الشبكات القادمة هنا -->
                         </div>
                     </div>
-
-                    <!-- 2. قسم الأحداث والأخبار السيبرانية (Cyber Events & Intel) -->
-                    <div class="bg-cyber-card border border-cyber-border rounded-xl p-4">
-                        <div class="flex items-center space-x-2 space-x-reverse text-cyber-accent font-bold mb-3 pb-2 border-b border-cyber-border">
-                            <i class="fa-solid fa-shield-cat"></i>
-                            <span>الأحداث والتقارير الأمنية (Cyber Events)</span>
-                        </div>
-                        <div class="space-y-2">
-                            <button onclick="fetchAndDisplayPost('news', 'cve-2026-report')" class="w-full text-right p-2.5 rounded-lg text-xs bg-cyber-dark hover:bg-cyber-border border border-cyber-border text-gray-200 transition flex items-center justify-between">
-                                <span class="truncate">🚨 تحليلات الثغرات والأحداث الطارئة</span>
-                                <i class="fa-solid fa-chevron-left text-[10px] text-cyber-muted"></i>
-                            </button>
-                            <!-- أضف تقارير الأحداث الأمنية القادمة هنا -->
-                        </div>
-                    </div>
-
                 </div>
-
-                <!-- منطقة عرض محتوى الدرس / المقال المختار -->
                 <div class="lg:col-span-2">
                     <div id="viewer-container" class="bg-cyber-card border border-cyber-border rounded-xl p-6 min-h-[500px]">
                         <div class="text-center py-20 text-cyber-muted space-y-3">
                             <i class="fa-solid fa-book-open-reader text-4xl text-cyber-blue opacity-50"></i>
-                            <p class="text-sm">اختر درساً أو تقريراً من الأقسام المجاورة لاستعراضه هنا...</p>
+                            <p class="text-sm">اختر درساً أو تقريراً لاستعراضه هنا...</p>
                         </div>
                     </div>
                 </div>
-
             </div>
-
         </section>
 
-        <!-- TAB 2: Credentials Section (الشهادات) -->
+        <!-- TAB 3: Credentials (الشهادات) -->
         <section id="tab-creds" class="hidden space-y-8">
             <div class="text-center max-w-3xl mx-auto space-y-2">
                 <h2 class="text-2xl font-bold text-white">الشهادات والاعتمادات المهنية</h2>
-                <p class="text-xs text-cyber-muted">توثيق للمسار العلمي والمهني في مجال الأمن السيبراني وتأمين الشبكات.</p>
             </div>
-
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- SOC Card -->
-                <div class="bg-cyber-card border border-cyber-border rounded-xl overflow-hidden hover:border-cyber-blue transition flex flex-col">
+                <div class="bg-cyber-card border border-cyber-border rounded-xl overflow-hidden flex flex-col">
                     <div class="h-48 bg-cyber-dark overflow-hidden flex items-center justify-center">
-                        <img src="soc-specialist-profile.jpg" alt="SOC Specialist" class="w-full h-full object-cover object-top">
+                        <img src="soc-specialist-profile.png" alt="SOC Specialist" class="w-full h-full object-cover object-top">
                     </div>
-                    <div class="p-4 flex-1 flex flex-col justify-between">
-                        <h3 class="text-sm font-bold text-white">Cybersecurity Analyst & SOC Specialist</h3>
-                        <span class="text-xs text-cyber-cyan font-mono mt-2">Python, Nmap, Wireshark</span>
-                    </div>
+                    <div class="p-4"><h3 class="text-sm font-bold text-white">SOC Specialist Profile</h3></div>
                 </div>
-
-                <!-- Google Card -->
-                <div class="bg-cyber-card border border-cyber-border rounded-xl overflow-hidden hover:border-cyber-blue transition flex flex-col">
+                <div class="bg-cyber-card border border-cyber-border rounded-xl overflow-hidden flex flex-col">
                     <div class="h-48 bg-white overflow-hidden flex items-center justify-center p-2">
-                        <img src="google-foundations-cybersecurity.jpg" alt="Google Cybersecurity Certificate" class="max-h-full max-w-full object-contain">
+                        <img src="Coursera B16XSFEL6FNI (1)_page-0001.jpg" alt="Google Cert" class="max-h-full max-w-full object-contain">
                     </div>
-                    <div class="p-4 flex-1 flex flex-col justify-between">
-                        <h3 class="text-sm font-bold text-white">Foundations of Cybersecurity</h3>
-                        <span class="text-xs text-cyber-blue font-mono mt-2">Google Certified</span>
-                    </div>
+                    <div class="p-4"><h3 class="text-sm font-bold text-white">Google Cybersecurity</h3></div>
                 </div>
-
-                <!-- OPSWAT Card -->
-                <div class="bg-cyber-card border border-cyber-border rounded-xl overflow-hidden hover:border-cyber-blue transition flex flex-col">
+                <div class="bg-cyber-card border border-cyber-border rounded-xl overflow-hidden flex flex-col">
                     <div class="h-48 bg-[#0b0e14] overflow-hidden flex items-center justify-center p-2">
-                        <img src="opswat-icip-certificate.jpg" alt="OPSWAT Certificate" class="max-h-full max-w-full object-contain">
+                        <img src="784659539_1587820206350746_7816542763284284514_n (1).jpg" alt="OPSWAT" class="max-h-full max-w-full object-contain">
                     </div>
-                    <div class="p-4 flex-1 flex flex-col justify-between">
-                        <h3 class="text-sm font-bold text-white">Critical Infrastructure Protection (ICIP)</h3>
-                        <span class="text-xs text-cyber-purple font-mono mt-2">OPSWAT Academy</span>
-                    </div>
-                </div>
-
-                <!-- ISC2 Card -->
-                <div class="bg-cyber-card border border-cyber-border rounded-xl overflow-hidden hover:border-cyber-blue transition flex flex-col">
-                    <div class="h-48 bg-white overflow-hidden flex items-center justify-center p-4">
-                        <img src="isc2-candidate-badge.png" alt="ISC2 Candidate Badge" class="max-h-full max-w-full object-contain">
-                    </div>
-                    <div class="p-4 flex-1 flex flex-col justify-between">
-                        <h3 class="text-sm font-bold text-white">ISC2 Candidate Status</h3>
-                        <span class="text-xs text-cyber-gold font-mono mt-2">ISC2 Global</span>
-                    </div>
-                </div>
-
-                <!-- Cisco Packet Tracer Card -->
-                <div class="bg-cyber-card border border-cyber-border rounded-xl overflow-hidden hover:border-cyber-blue transition flex flex-col">
-                    <div class="h-48 bg-white overflow-hidden flex items-center justify-center p-2">
-                        <img src="cisco-packet-tracer.jpg" alt="Cisco Packet Tracer" class="max-h-full max-w-full object-contain">
-                    </div>
-                    <div class="p-4 flex-1 flex flex-col justify-between">
-                        <h3 class="text-sm font-bold text-white">Getting Started with Cisco Packet Tracer</h3>
-                        <span class="text-xs text-cyber-cyan font-mono mt-2">Cisco Networking Academy</span>
-                    </div>
+                    <div class="p-4"><h3 class="text-sm font-bold text-white">OPSWAT ICIP</h3></div>
                 </div>
             </div>
         </section>
 
-        <!-- TAB 3: Markdown Live Editor (محرر المسودة والمقالات) -->
+        <!-- TAB 4: Editor (المحرر) -->
         <section id="tab-editor" class="hidden space-y-4">
             <div class="bg-cyber-card border border-cyber-border p-4 rounded-xl flex justify-between items-center">
                 <h3 class="text-sm font-bold text-cyber-blue">محرر مسودات الـ Markdown</h3>
-                <button onclick="downloadMarkdown()" class="bg-cyber-green hover:bg-green-600 text-white font-bold px-4 py-1.5 rounded-lg text-xs transition">
-                    <i class="fa-solid fa-download ml-1"></i>تحميل الملف
-                </button>
+                <button onclick="downloadMarkdown()" class="bg-cyber-green hover:bg-green-600 text-white font-bold px-4 py-1.5 rounded-lg text-xs transition">تحميل الملف</button>
             </div>
-
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 min-h-[500px]">
-                <textarea id="markdown-input" class="w-full bg-cyber-card border border-cyber-border p-4 text-xs font-mono text-gray-200 focus:outline-none rounded-xl resize-none" placeholder="اكتب مسودتك بالـ Markdown هنا..." oninput="renderMarkdownPreview()"></textarea>
+                <textarea id="markdown-input" class="w-full bg-cyber-card border border-cyber-border p-4 text-xs font-mono text-gray-200 focus:outline-none rounded-xl resize-none" placeholder="اكتب مسودتك هنا..." oninput="renderMarkdownPreview()"></textarea>
                 <div id="editor-preview" class="bg-[#0d1117] border border-cyber-border p-6 rounded-xl markdown-body overflow-y-auto"></div>
             </div>
         </section>
@@ -243,32 +251,35 @@
     <!-- JavaScript Engine -->
     <script>
         function switchTab(tab) {
+            document.getElementById('tab-projects').classList.add('hidden');
             document.getElementById('tab-library').classList.add('hidden');
             document.getElementById('tab-creds').classList.add('hidden');
             document.getElementById('tab-editor').classList.add('hidden');
 
-            document.getElementById('btn-library-tab').className = "px-4 py-2 rounded-md transition-all text-cyber-muted hover:text-white";
-            document.getElementById('btn-creds-tab').className = "px-4 py-2 rounded-md transition-all text-cyber-muted hover:text-white";
-            document.getElementById('btn-editor-tab').className = "px-4 py-2 rounded-md transition-all text-cyber-muted hover:text-white";
+            document.getElementById('btn-projects-tab').className = "px-3 py-2 rounded-md transition-all text-cyber-muted hover:text-white";
+            document.getElementById('btn-library-tab').className = "px-3 py-2 rounded-md transition-all text-cyber-muted hover:text-white";
+            document.getElementById('btn-creds-tab').className = "px-3 py-2 rounded-md transition-all text-cyber-muted hover:text-white";
+            document.getElementById('btn-editor-tab').className = "px-3 py-2 rounded-md transition-all text-cyber-muted hover:text-white";
 
-            if (tab === 'library') {
+            if (tab === 'projects') {
+                document.getElementById('tab-projects').classList.remove('hidden');
+                document.getElementById('btn-projects-tab').className = "px-3 py-2 rounded-md transition-all text-cyber-blue bg-cyber-card shadow";
+            } else if (tab === 'library') {
                 document.getElementById('tab-library').classList.remove('hidden');
-                document.getElementById('btn-library-tab').className = "px-4 py-2 rounded-md transition-all text-cyber-blue bg-cyber-card shadow";
+                document.getElementById('btn-library-tab').className = "px-3 py-2 rounded-md transition-all text-cyber-blue bg-cyber-card shadow";
             } else if (tab === 'creds') {
                 document.getElementById('tab-creds').classList.remove('hidden');
-                document.getElementById('btn-creds-tab').className = "px-4 py-2 rounded-md transition-all text-cyber-blue bg-cyber-card shadow";
+                document.getElementById('btn-creds-tab').className = "px-3 py-2 rounded-md transition-all text-cyber-blue bg-cyber-card shadow";
             } else if (tab === 'editor') {
                 document.getElementById('tab-editor').classList.remove('hidden');
-                document.getElementById('btn-editor-tab').className = "px-4 py-2 rounded-md transition-all text-cyber-blue bg-cyber-card shadow";
+                document.getElementById('btn-editor-tab').className = "px-3 py-2 rounded-md transition-all text-cyber-blue bg-cyber-card shadow";
             }
         }
 
-        // دالة الجلب الذكية لمنع أخطاء المسارات وقراءة الـ Markdown مباشرة
         async function fetchAndDisplayPost(folder, filename) {
             const container = document.getElementById('viewer-container');
-            container.innerHTML = '<div class="text-center py-20 text-cyber-blue"><i class="fa-solid fa-spinner fa-spin text-2xl mb-2"></i><p class="text-xs">جاري تحميل المحتوى من المكتبة...</p></div>';
+            container.innerHTML = '<div class="text-center py-20 text-cyber-blue"><i class="fa-solid fa-spinner fa-spin text-2xl mb-2"></i><p class="text-xs">جاري تحميل المحتوى...</p></div>';
 
-            // مسارات متدرجة لضمان الوصول الصحيح للملف على GitHub Pages
             const pathsToTry = [
                 `./${folder}/${filename}.md`,
                 `${folder}/${filename}.md`,
@@ -276,7 +287,6 @@
             ];
 
             let markdownContent = null;
-
             for (let path of pathsToTry) {
                 try {
                     const response = await fetch(path);
@@ -284,22 +294,14 @@
                         markdownContent = await response.text();
                         break;
                     }
-                } catch (e) {
-                    console.log("حاوَل جلب الملف من: " + path + " وتختاه.");
-                }
+                } catch (e) {}
             }
 
             if (markdownContent) {
-                // إزالة ترويسة Front Matter إذا وجدت لعرض المقال بشكل جميل
                 const cleanMarkdown = markdownContent.replace(/^---[\s\S]*?---/, '');
                 container.innerHTML = `<div class="markdown-body">${marked.parse(cleanMarkdown)}</div>`;
             } else {
-                container.innerHTML = `
-                    <div class="text-center py-16 text-red-400 space-y-2">
-                        <i class="fa-solid fa-triangle-exclamation text-3xl"></i>
-                        <p class="text-sm font-bold">عذراً، لم نتمكن من الوصول للملف المطلوب.</p>
-                        <p class="text-xs text-cyber-muted">تأكد من وجود الملف باسم <code class="text-cyber-cyan">${filename}.md</code> داخل مجلد <code class="text-cyber-cyan">${folder}</code> على GitHub.</p>
-                    </div>`;
+                container.innerHTML = `<div class="text-center py-16 text-red-400"><p>عذراً، لم نتمكن من الوصول للملف.</p></div>`;
             }
         }
 
@@ -313,7 +315,7 @@
             const blob = new Blob([content], { type: 'text/markdown;charset=utf-8' });
             const link = document.createElement('a');
             link.href = URL.createObjectURL(blob);
-            link.download = 'article.md';
+            link.download = 'project.md';
             link.click();
         }
     </script>
