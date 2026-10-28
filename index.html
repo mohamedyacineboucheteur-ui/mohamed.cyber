@@ -40,8 +40,8 @@ async function loadLesson(fileName) {
         const container = document.getElementById('post-container');
         container.innerHTML = '<p class="text-cyber-blue text-center"><i class="fa-solid fa-spinner fa-spin ml-2"></i>جاري تحميل الدرس...</p>';
         
-        // جلب ملف الـ Markdown من المجلد
-        const response = await fetch(`network-security/packet-filtering-acls-guide.md`);
+        // تم إضافة ./ قبل اسم المجلد ليتطابق مع مسار موقعك الحالي على GitHub Pages
+        const response = await fetch(`./network-security/${fileName}.md`);
         if (!response.ok) throw new Error("تعذر جلب ملف الدرس");
         
         const markdownText = await response.text();
@@ -49,7 +49,7 @@ async function loadLesson(fileName) {
         // تحويل النص وعرضه باستخدام Marked.js
         container.innerHTML = marked.parse(markdownText);
         
-    } catch (error) {
+    }قام catch (error) {
         console.error(error);
         document.getElementById('post-container').innerHTML = '<p class="text-red-400 text-center">عذراً، حدث خطأ أثناء تحميل الدرس.</p>';
     }
