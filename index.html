@@ -76,7 +76,72 @@
                     <p class="text-xs text-cyber-muted">Cybersecurity Analyst & Network Defense Specialist</p>
                 </div>
             </div>
+<button id="btn-cv-tab" onclick="switchTab('cv')" class="px-3 py-2 rounded-md transition-all text-cyber-muted hover:text-white">
+    <i class="fa-solid fa-id-card ml-1"></i>السيرة الذاتية (CV)
+</button>
+<!-- قسم السيرة الذاتية المتوافق مع محركات البحث وأصحاب العمل -->
+<section id="tab-cv" class="hidden space-y-6">
+    <div class="bg-cyber-card border border-cyber-border rounded-xl p-6 sm:p-10 shadow-2xl space-y-8">
+        
+        <!-- رأس السيرة الذاتية -->
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center border-b border-cyber-border pb-6 gap-4">
+            <div>
+                <h2 class="text-2xl sm:text-3xl font-black text-white">محمد ياسين بوشاطور</h2>
+                <p class="text-cyber-blue font-mono text-sm mt-1">Cybersecurity Analyst & SOC Specialist | Senior Technician</p>
+                <div class="flex flex-wrap gap-4 text-xs text-cyber-muted mt-3 font-mono">
+                    <span><i class="fa-solid fa-location-dot ml-1 text-cyber-cyan"></i>وهران، الجزائر</span>
+                    <span><i class="fa-solid fa-envelope ml-1 text-cyber-cyan"></i>mohamedyacineboucheteur@gmail.com</span>
+                    <span><i class="fa-solid fa-phone ml-1 text-cyber-cyan"></i>0658900112</span>
+                </div>
+            </div>
+            <div>
+                <a href="mohamed-yacine-cv.pdf" target="_blank" class="bg-cyber-blue hover:bg-blue-600 text-cyber-dark font-bold px-4 py-2 rounded-lg text-xs transition flex items-center shadow-lg font-mono">
+                    <i class="fa-solid fa-file-arrow-down ml-2"></i>تحميل كـ PDF (ATS)
+                </a>
+            </div>
+        </div>
 
+        <!-- الملخص المهني -->
+        <div class="space-y-2">
+            <h3 class="text-base font-bold text-cyber-cyan flex items-center">
+                <i class="fa-solid fa-user-shield ml-2"></i>الملخص المهني (Professional Summary)
+            </h3>
+            <p class="text-xs sm:text-sm text-gray-300 leading-relaxed">
+                محلل أمن سيبراني واختصاصي حماية شبكات بخبرة تقنية واسعة تمتد لعقد من الزمن (2015-2025) في صيانة الأنظمة الإلكترونية وتقنيات الرادار. حاصل على شهادة جوجل للأمان السيبراني واعتمادات متقدمة في أمن البنى التحتية الحجة (OPSWAT ICIP) والشبكات. متخصص في مراقبة الأنظمة، تحليل السجلات عبر Wazuh SIEM، فحص الشبكات بـ Wireshark، وتقييم الثغرات الأمنية للحد من المخاطر التقنية.
+            </p>
+        </div>
+
+        <!-- الخبرات والمسار المهني -->
+        <div class="space-y-4">
+            <h3 class="text-base font-bold text-cyber-cyan flex items-center">
+                <i class="fa-solid fa-briefcase ml-2"></i>الخبرات المهنية (Professional Experience)
+            </h3>
+            <div class="border-r-2 border-cyber-blue pr-4 space-y-1">
+                <h4 class="text-sm font-bold text-white">ضابط صف - تقني سامي في الأنظمة الإلكترونية والرادار</h4>
+                <p class="text-xs text-cyber-muted font-mono">الخدمة العسكرية | 2015 – 2025 (10 سنوات)</p>
+                <p class="text-xs text-gray-300 mt-1">مسؤول عن صيانة وتشغيل المعدات الكهرومتقنية، تشخيص الأعطاب المعقدة في الأنظمة الإلكترونية، وتأمين استمرارية العمليات التقنية عالية الدقة.</p>
+            </div>
+        </div>
+
+        <!-- المهارات التقنية -->
+        <div class="space-y-3">
+            <h3 class="text-base font-bold text-cyber-cyan flex items-center">
+                <i class="fa-solid fa-gears ml-2"></i>المهارات التقنية وأدوات المختبر (Technical Skills & Labs)
+            </h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                <div class="bg-cyber-dark p-3 rounded-lg border border-cyber-border">
+                    <span class="font-bold text-cyber-blue block mb-1">مراقبة الأمن (SIEM):</span>
+                    <span class="text-cyber-muted font-mono">Wazuh v4, Syslog Monitoring</span>
+                </div>
+                <div class="bg-cyber-dark p-3 rounded-lg border border-cyber-border">
+                    <span class="font-bold text-cyber-blue block mb-1">تحليل الشبكات وفحص الثغرات:</span>
+                    <span class="text-cyber-muted font-mono">Wireshark, Nmap, TCPView, ACLs</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
             <!-- Tab Buttons -->
             <nav class="flex bg-cyber-dark p-1 rounded-lg border border-cyber-border text-sm font-medium flex-wrap gap-1">
                 <button id="btn-projects-tab" onclick="switchTab('projects')" class="px-3 py-2 rounded-md transition-all text-cyber-blue bg-cyber-card shadow">
