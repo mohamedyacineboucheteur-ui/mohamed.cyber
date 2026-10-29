@@ -143,7 +143,53 @@
                 </div>
             </div>
         </div>
+<!-- بطاقة مشروع AI SOC Copilot مع عرض الصورة والملف -->
+<div class="bg-cyber-dark/80 border border-cyber-border rounded-xl p-5 space-y-4 shadow-lg hover:border-cyber-cyan/50 transition">
+    
+    <!-- رأس البطاقة والأيقونة -->
+    <div class="flex items-center justify-between border-b border-cyber-border pb-3">
+        <h3 class="text-base font-bold text-cyber-blue flex items-center gap-2">
+            <i class="fa-solid fa-brain text-cyan-400"></i>
+            <span>AI SOC Copilot (Ollama & Gemma)</span>
+        </h3>
+        <span class="text-[10px] bg-cyber-cyan/10 text-cyan-400 border border-cyber-cyan/20 px-2 py-0.5 rounded-full font-mono">Python / AI</span>
+    </div>
 
+    <!-- عرض الصورة التوضيحية للمشروع -->
+    <div class="relative overflow-hidden rounded-lg border border-cyber-border group">
+        <img src="756347805_1560829142383186_909716183572273318_n.jpg" 
+             alt="AI SOC Copilot Terminal" 
+             class="w-full h-40 object-cover object-center group-hover:scale-105 transition-transform duration-300">
+        <div class="absolute inset-0 bg-slate-950/40 flex items-end p-2">
+            <span class="text-[10px] text-gray-200 bg-slate-900/80 px-2 py-0.5 rounded border border-cyber-border font-mono">
+                <i class="fa-solid fa-terminal text-cyan-400 mr-1"></i> Kali Linux Terminal Log
+            </span>
+        </div>
+    </div>
+
+    <!-- وصف قصير للمشروع -->
+    <p class="text-xs text-gray-300 leading-relaxed">
+        أداة أتمتة محلية تراقب سجلات النظام الحية (`journalctl`) وتربطها بنموذج الذكاء الاصطناعي المحلي **Ollama (Gemma:2b)** للتحليل الفوري للهجمات والتنبيهات الأمنية.
+    </p>
+
+    <!-- خيارات عرض الملف والكود -->
+    <div class="grid grid-cols-2 gap-2 pt-1">
+        <!-- زر فتح الملف البرمجي -->
+        <a href="sec_assistant.py" download 
+           class="py-2 px-3 rounded-lg text-xs bg-cyber-dark hover:bg-cyber-border border border-cyber-border text-cyan-400 transition flex items-center justify-center gap-1.5 font-mono">
+            <i class="fa-solid fa-file-code"></i>
+            <span>تحميل الكود</span>
+        </a>
+
+        <!-- زر عرض الشرح والوثيقة -->
+        <button onclick="fetchAndDisplayPost('ai-soc-copilot', 'index')" 
+                class="py-2 px-3 rounded-lg text-xs bg-cyber-dark hover:bg-cyber-border border border-cyber-border text-gray-200 hover:text-cyan-400 transition flex items-center justify-center gap-1.5">
+            <i class="fa-solid fa-book-open"></i>
+            <span>عرض التقرير</span>
+        </button>
+    </div>
+
+</div>
     </div>
 </section>
             <!-- Tab Buttons -->
