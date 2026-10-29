@@ -336,8 +336,10 @@
                 <p class="text-xs text-cyber-muted">أرشيف تقني منظم يضم الشروحات الميدانية وتحليلات الشبكات.</p>
             </div>
 
-<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-    <!-- القائمة الجانبية للدروس (Sidebar) -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" dir="rtl">
+    <!-- بطاقة أمن الشبكات الموجودة لديك -->
+    <!-- بطاقة البنية التحتية للمياه الجديدة -->
+</div>
     <div class="lg:col-span-1 space-y-4">
         <div class="bg-cyber-card border border-cyber-border rounded-xl p-4">
             <div class="flex items-center space-x-2 space-x-reverse text-cyber-cyan font-bold mb-3 pb-2 border-b border-cyber-border">
@@ -465,6 +467,26 @@
                         </div>
                     </div>
                 </div>
+            <!-- بطاقة المجلد الجديد: الأمن السيبراني للبنية التحتية للمياه -->
+<div class="bg-cyber-dark/80 border border-cyber-border rounded-xl p-5 space-y-4 shadow-lg">
+    
+    <!-- عنوان المجلد -->
+    <div class="flex items-center justify-between border-b border-cyber-border pb-3">
+        <h3 class="text-base font-bold text-cyber-blue flex items-center gap-2">
+            <i class="fa-solid fa-droplet text-cyan-400"></i>
+            <span>البنية التحتية للمياه (Water Infrastructure)</span>
+        </h3>
+    </div>
+
+    <!-- قائمة الدروس داخل المجلد -->
+    <div class="space-y-2">
+        <button onclick="fetchAndDisplayPost('water-infrastructure-cybersecurity', 'index')" 
+                class="w-full text-right p-3 rounded-lg text-xs bg-cyber-dark hover:bg-cyber-border border border-cyber-border text-gray-200 transition flex items-center justify-between group">
+            <span class="truncate group-hover:text-cyan-400 transition">💧 مقدمة وإطار NIST للبنية التحتية للمياه</span>
+            <i class="fa-solid fa-chevron-left text-[10px] text-cyber-muted group-hover:text-cyan-400 transition"></i>
+        </button>
+    </div>
+</div>
             </div>
         </section>
 
