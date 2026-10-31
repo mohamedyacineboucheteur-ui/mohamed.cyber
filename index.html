@@ -550,8 +550,8 @@
 
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" dir="rtl">
     
-    <!-- 1. بطاقة سياسات الأمن السيبراني (تظهر أولاً على اليسار في الواجهة العربية) -->
-    <a href="https://github.com/mohamedyacineboucheteur-ui/mohamed.cyber/tree/main/Cybersecurity Policy)" target="_blank" class="block bg-cyber-card border border-cyber-border rounded-xl p-5 hover:border-cyber-cyan transition-all duration-300 group">
+    <!-- 1. بطاقة سياسات الأمن السيبراني (تفتح نافذة الدرس عند النقر) -->
+    <div onclick="openPolicyModal()" class="block bg-cyber-card border border-cyber-border rounded-xl p-5 hover:border-cyber-cyan transition-all duration-300 group cursor-pointer">
         <div class="flex items-center justify-between mb-4">
             <div class="p-3 bg-cyber-cyan/10 rounded-lg text-cyber-cyan group-hover:bg-cyber-cyan group-hover:text-black transition-colors">
                 <i class="fa-solid fa-file-shield text-2xl"></i>
@@ -564,12 +564,36 @@
         
         <div class="flex items-center justify-between text-xs text-cyber-cyan pt-3 border-t border-cyber-border/50">
             <span class="flex items-center gap-1">
-                <i class="fa-brands fa-github"></i> الانتقال للمستودع
+                <i class="fa-solid fa-book-open"></i> قراءة الدرس والسكربت
             </span>
             <i class="fa-solid fa-arrow-left transform group-hover:-translate-x-1 transition-transform"></i>
         </div>
-    </a>
+    </div>
+import os
+from cryptography.fernet import Fernet
 
+def check_password_strength(password):
+    if len(password) < 8:
+        return "❌ ضعيفة جداً"
+    if not re.search(r"[A-Z]", password):
+        return "❌ تحتاج حرف كبير"
+    return "✅ ممتازة ومعتمدة"
+
+def encrypt_file(file_path):
+    key = Fernet.generate_key()
+    f = Fernet(key)
+    with open(file_path, "rb") as file:
+        data = file.read()
+    encrypted = f.encrypt(data)
+    with open(file_path + ".enc", "wb") as file:
+        file.write(encrypted)
+    print("[+] تم التشفير بنجاح")</code></pre>
+            </div>
+
+        </div>
+    </div>
+</div>
+</div>
     <!-- 2. بطاقة أمن الشبكات (Network Security) الموجودة مسبقاً -->
     <!-- (ضع محتوى بطاقة أمن الشبكات هنا بعدها مباشرة) -->
 
@@ -889,5 +913,14 @@
             link.click();
         }
     </script>
-</body>
+   <script>
+    function openPolicyModal() {
+        document.getElementById('policyModal').classList.remove('hidden');
+    }
+
+    function closePolicyModal() {
+        document.getElementById('policyModal').classList.add('hidden');
+    }
+</script>
 </html>
+</script>
