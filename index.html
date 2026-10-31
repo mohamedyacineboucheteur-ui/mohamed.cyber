@@ -550,30 +550,39 @@
 
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" dir="rtl">
     
-    <!-- 1. بطاقة سياسات الأمن السيبراني (تفتح نافذة الدرس عند النقر) -->
-    <div onclick="openPolicyModal()" class="block bg-cyber-card border border-cyber-border rounded-xl p-5 hover:border-cyber-cyan transition-all duration-300 group cursor-pointer">
-        <div class="flex items-center justify-between mb-4">
-            <div class="p-3 bg-cyber-cyan/10 rounded-lg text-cyber-cyan group-hover:bg-cyber-cyan group-hover:text-black transition-colors">
-                <i class="fa-solid fa-file-shield text-2xl"></i>
+ <!-- قسم محتوى السياسة وكود البايثون -->
+<div class="bg-cyber-card border border-cyber-border rounded-xl p-5 mb-6" dir="rtl">
+    <h3 class="text-xl font-bold text-cyber-cyan mb-3">سياسات الأمن السيبراني وسكربت البايثون التطبيقي</h3>
+    <p class="text-cyber-muted text-sm mb-4">دليل شامل لحماية الأصول الرقمية وضبط الصلاحيات، مرفقاً بسكربت بايثون لفحص كلمات المرور وتشفير الملفات.</p>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- الشرح النظري -->
+        <div class="space-y-3 text-right">
+            <div class="bg-cyber-bg p-4 rounded-lg border border-cyber-border">
+                <h4 class="text-cyber-cyan font-bold mb-1">1. سياسة التحكم في الوصول</h4>
+                <p class="text-xs text-cyber-muted">التحقق من قوة كلمات المرور ومنع استخدام كلمات مرور ضعيفة وفق المعايير المؤسسية.</p>
             </div>
-            <span class="text-xs text-cyber-muted bg-cyber-bg px-2.5 py-1 rounded-full border border-cyber-border">وثائق وأكواد</span>
+            <div class="bg-cyber-bg p-4 rounded-lg border border-cyber-border">
+                <h4 class="text-cyber-cyan font-bold mb-1">2. تشفير البيانات (Data at Rest)</h4>
+                <p class="text-xs text-cyber-muted">استخدام مكتبة Fernet وخوارزميات AES لتشفير الملفات الحساسة وحمايتها من الاختراق.</p>
+            </div>
         </div>
-        
-        <h3 class="text-lg font-bold text-white mb-2 group-hover:text-cyber-cyan transition-colors">سياسات الأمن السيبراني للمؤسسات</h3>
-        <p class="text-cyber-muted text-sm line-clamp-2 mb-4">دليل شامل لسياسات أمن المعلومات، التحكم في الوصول، واستجابة الحوادث مع سكربت بايثون تطبيقي.</p>
-        
-        <div class="flex items-center justify-between text-xs text-cyber-cyan pt-3 border-t border-cyber-border/50">
-            <span class="flex items-center gap-1">
-                <i class="fa-solid fa-book-open"></i> قراءة الدرس والسكربت
-            </span>
-            <i class="fa-solid fa-arrow-left transform group-hover:-translate-x-1 transition-transform"></i>
-        </div>
-    </div>
+
+        <!-- صندوق كود البايثون المنسق -->
+        <div class="bg-cyber-bg border border-cyber-border rounded-xl p-4 flex flex-col">
+            <div class="flex items-center justify-between mb-2 pb-2 border-b border-cyber-border text-xs">
+                <span class="text-cyber-cyan font-bold flex items-center gap-1">
+                    <i class="fa-solid fa-code"></i> security_tool.py
+                </span>
+                <span class="text-cyber-muted bg-cyber-card px-2 py-0.5 rounded border border-cyber-border">Python</span>
+            </div>
+            
+            <pre class="bg-black/40 p-3 rounded-lg text-xs text-cyber-muted overflow-x-auto font-mono text-left" dir="ltr"><code>import re
 import os
 from cryptography.fernet import Fernet
 
 def check_password_strength(password):
-    if len(password) < 8:
+    if len(password) &lt; 8:
         return "❌ ضعيفة جداً"
     if not re.search(r"[A-Z]", password):
         return "❌ تحتاج حرف كبير"
@@ -588,8 +597,9 @@ def encrypt_file(file_path):
     with open(file_path + ".enc", "wb") as file:
         file.write(encrypted)
     print("[+] تم التشفير بنجاح")</code></pre>
-            </div>
-
+        </div>
+    </div>
+</div>
         </div>
     </div>
 </div>
