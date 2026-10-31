@@ -1,75 +1,66 @@
-# 🛡️ دليل سياسة الأمن السيبراني للمؤسسات والشركات الكبرى
-> **القسم:** دروس الأمن السيبراني والدفاع عن الشبكات (Cybersecurity Lessons)  
-> **الهدف:** استعراض الهيكل المنهجي والركائز الأساسية لبناء وتنفيذ سياسات أمن المعلومات داخل البيئات المؤسسية.
+<div class="space-y-6 text-right" dir="rtl">
+    <h2 class="text-2xl font-bold text-cyber-cyan mb-4">وثيقة سياسة الأمن السيبراني وسكربت التطبيق العملي</h2>
+    <p class="text-cyber-muted text-base mb-6">الدليل الشامل والمرجعي لحماية الأصول الرقمية، ضبط الصلاحيات، مرفقاً بسكربت بايثون تطبيقي لفحص كلمات المرور وتشفير الملفات.</p>
 
----
+    <!-- هيكل مقسم عمودياً: الدرس في جانب وكود البايثون في الجانب الآخر -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        
+        <!-- الجانب الأول: محتوى الدرس والشرح المنهجي -->
+        <div class="space-y-4">
+            <div class="bg-cyber-card border border-cyber-border rounded-xl p-5">
+                <h3 class="text-xl font-bold text-cyber-cyan mb-2">أولاً: سياسة التحكم في الوصول</h3>
+                <ul class="space-y-2 text-cyber-muted text-sm list-disc list-inside">
+                    <li><strong>التعريف:</strong> إطار تنظيمي يحدد صلاحيات المستخدمين ومبدأ الأقل صلاحية.</li>
+                    <li><strong>التطبيق العملي:</strong> فحص تعقيد كلمات المرور آلياً عبر سكربت البايثون للتأكد من مطابقتها للمعايير.</li>
+                </ul>
+            </div>
 
-## 📄 مقدمة (Overview)
-تُعتبر **سياسة الأمن السيبراني (Cybersecurity Policy)** الوثيقة التنفيذية والمرجعية الأولى داخل أي مؤسسة. تهدف هذه الوثيقة إلى حماية الأصول الرقمية، وتحديد المسؤوليات، وضمان الامتثال للمواصفات الدولية مثل **ISO/IEC 27001** وإطار عمل **NIST CSF**.
+            <div class="bg-cyber-card border border-cyber-border rounded-xl p-5">
+                <h3 class="text-xl font-bold text-cyber-cyan mb-2">ثانياً: تشفير وحماية البيانات</h3>
+                <ul class="space-y-2 text-cyber-muted text-sm list-disc list-inside">
+                    <li><strong>التعريف:</strong> تأمين الملفات الحساسة أثناء التخزين (*Data at Rest*).</li>
+                    <li><strong>التطبيق العملي:</strong> استخدام مكتبة التشفير القوية `Fernet` لتشفير وفك تشفير الملفات النصية.</li>
+                </ul>
+            </div>
+        </div>
 
----
+        <!-- الجانب الثاني: عرض كود البايثون التطبيقي داخل واجهة برمجة -->
+        <div class="bg-cyber-card border border-cyber-border rounded-xl p-5 flex flex-col">
+            <div class="flex items-center justify-between mb-3 pb-2 border-b border-cyber-border">
+                <span class="text-cyber-cyan font-bold text-sm flex items-center gap-2">
+                    <i class="fa-solid fa-code"></i> scripts/security_tool.py
+                </span>
+                <span class="text-xs text-cyber-muted bg-cyber-bg px-2 py-1 rounded border border-cyber-border">Python</span>
+            </div>
+            
+            <pre class="bg-cyber-bg p-3 rounded-lg text-xs text-cyber-muted overflow-x-auto font-mono dir-ltr text-left flex-grow max-h-96" dir="ltr"><code>import re
+import os
+from cryptography.fernet import Fernet
 
-## 🏛️ الركائز الأساسية لسياسة الأمن السيبراني
+def check_password_strength(password):
+    if len(password) &lt; 8:
+        return "❌ ضعيفة جداً"
+    if not re.search(r"[A-Z]", password):
+        return "❌ تحتاج حرف كبير"
+    return "✅ ممتازة ومعتمدة"
 
-### 1. سياسة التحكم في الوصول (Access Control Policy)
-تعتمد على تنظيم هوية المستخدمين وصلاحياتهم لمنع الوصول غير المصرح به:
-* **مبدأ الأقل صلاحية (Least Privilege Principle):** يُمنح الموظف فقط الحد الأدنى من الصلاحيات الضرورية لتأدية مهام عمله.
-* **إدارة الهوية والوصول (IAM):** توثيق كافة الحسابات والتدقيق في دورة حياة الحساب (التفعيل، التعديل، والإلغاء).
-* **التحقق متعدد العوامل (MFA):** فرض مصادقة ثنائية أو متعددة العوامل إجبارياً على جميع الأنظمة، البريد الإلكتروني، والـ VPN.
+def encrypt_file(file_path):
+    key = Fernet.generate_key()
+    f = Fernet(key)
+    with open(file_path, "rb") as file:
+        data = file.read()
+    encrypted = f.encrypt(data)
+    with open(file_path + ".enc", "wb") as file:
+        file.write(encrypted)
+    print("[+] تم التشفير بنجاح")</code></pre>
+            
+            <div class="mt-4 pt-3 border-t border-cyber-border flex justify-between items-center text-xs">
+                <span class="text-cyber-muted">التثبيت: pip install cryptography</span>
+                <a href="https://github.com/mohamedyacineboucheteur-ui/mohamed.cyber/tree/main/Cybersecurity%20Policy" target="_blank" class="text-cyber-cyan hover:underline flex items-center gap-1">
+                    <i class="fa-brands fa-github"></i> عرض في المستودع
+                </a>
+            </div>
+        </div>
 
-### 2. تصنيف البيانات وحمايتها (Data Classification & Protection)
-تقسيم البيانات بناءً على درجة حساسيتها وضبط تداولها:
-* **مستويات التصنيف:**
-  * 🟢 **عام (Public):** معلومات متاح نشرها للعموم.
-  * 🟡 **داخلي (Internal):** بيانات خاصة بالعمل اليومي والموظفين.
-  * 🟠 **سري (Confidential):** البيانات المالية والتشاركية الحساسة.
-  * 🔴 **سري للغاية (Restricted/Top Secret):** أسرار الشركة الملكية والبيانات الشخصية الحساسة.
-* **التشفير (Encryption):**
-  * تشفير البيانات أثناء النقل (*Data in Transit*) باستخدام بروتوكولات حديثة مثل `TLS 1.3`.
-  * تشفير البيانات أثناء التخزين (*Data at Rest*) باستخدام `AES-256`.
-
-### 3. أمن الشبكات والأجهزة (Network & Endpoint Security)
-* **تقطيع الشبكة (Network Segmentation):** عزل شبكات الإدارة، الخوادم الحساسة، الأجهزة الشخصية، وشبكة الزوار (*Guest Network*) عن بعضها.
-* **إدارة الأجهزة الطرفية (EDR / MDM):** إلزام تثبيت برامج الحماية والاستجابة للتهديدات على كافة أجهزة الشركة، وتطبيق سياسات صارمة بشأن الأجهزة الشخصية (BYOD).
-
-### 4. إدارة السجلات والمراقبة (Log Management & SIEM)
-* **تجميع السجلات المركزية:** جمع سجلات الأحداث (`Syslog`, `Journalctl`, `Event Viewer`) وتوجيهها إلى نظام إدارة الأحداث والأمن (**SIEM** / **Wazuh**).
-* **المراقبة اللحظية:** متابعة مؤشرات الاختراق (IoCs) ومحاولات تسجيل الدخول الفاشلة المتكررة أو السلوكيات غير الطبيعية للشبكة.
-
----
-
-## 🔄 الانتقال إلى نموذج "الثقة الصفرية" (Zero Trust Architecture)
-
-تتجه المؤسسات الحديثة من نموذج الحماية التقليدي القائم على الحدود (*Perimeter-Based*) إلى مبدأ **Zero Trust**:
-
-| المعيار | النموذج التقليدي (Perimeter) | نموذج الثقة الصفرية (Zero Trust) |
-| :--- | :--- | :--- |
-| **مبدأ الثقة** | يثق بكل الأجهزة داخل الشبكة الداخلية. | لا يثق بأي جهاز أو مستخدم كلياً (*Never Trust, Always Verify*). |
-| **التحقق من الهوية** | يتم عند دخول الشبكة فقط (مثل VPN). | يتحقق بصفة مستمرة مع كل طلب وصول لخدمة أو تطبيق. |
-| **الحد من الأضرار** | يسهل للمهاجم الحركة الجانبية (*Lateral Movement*). | تقييد دقيق للحركة الجانبية عبر التقسيم الدقيق (*Micro-segmentation*). |
-
----
-
-## 🚨 خطة الاستجابة للحوادث (Incident Response Plan - IRP)
-
-تحدد الخطة الخطوات الإجرائية الست عند وقوع حادث أمني:
-
-1. **التحضير (Preparation):** تجهيز الأدوات، فرق العمل (CSIRT)، وسيناريوهات التعامل.
-2. **الاستكشاف والتحديد (Identification):** رصد الهجوم وتحديد نوعه ونطاق تأثيره عبر مراقبة السجلات.
-3. **الاحتواء (Containment):** عزل الأنظمة المصابة شبكياً لمنع انتشار التهديد.
-4. **الاستئصال (Eradication):** إزالة البرمجيات الخبيثة وسد الثغرات التي استُغلت في الهجوم.
-5. **التعافي (Recovery):** استعادة الأنظمة والبيانات من النسخ الاحتياطية وتأكيد سلامتها قبل تشغيلها.
-6. **الدروس المستفادة (Lessons Learned):** توثيق تقرير التقرير الجنائي وتحديث السياسات لتفادي تكرار الحادث.
-
----
-
-## 💡 خلاصة ونقاط تنفيذية للطلاب والمطورين
-* **السياسة ليست مجرد وثيقة:** نجاح السياسة يعتمد على أتمتة تطبيقها بواسطة الأدوات المبرمجة والتدريب المستمر لكادر العمل.
-* **التوعية الأمنية (Security Awareness):** يعتبر العنصر البشري الحلقة الأكثر استهدافاً؛ لذا فإن اختيارات محاكاة التصيد (*Phishing Simulations*) دورية ومهمة جداً.
-## 💻 التطبيق العملي (Python Script)
-يحتوي المجلد على سكربت بلغة بايثون يطبق جانبين هامين من السياسة:
-- **فحص تعقيد كلمات السر:** يضمن عدم قبول كلمات مرور ضعيفة وفق المعايير المؤسسية.
-- **تشفير الملفات الحساسة:** يطبق معيار حماية البيانات عند التخزين (*Data at Rest*) باستخدام خوارزميات التشفير المتقدمة.
-
----
-*تم إعداد هذا الدرس كمرجع تعليمي ضمن السلسلة الخاصة بالأمن السيبراني والدفاع عن الشبكات.*
+    </div>
+</div>
