@@ -82,4 +82,4 @@ if __name__ == "__main__":
             f.write("هذه بيانات سرية خاصة بالشركة ويجب تشفيرها!")
             
         print([i] تم إنشاء ملف تجريبي باسم: {sample_file})
-        encrypt_file(sample_file)سسس
+        encrypt_file(sample_file)
