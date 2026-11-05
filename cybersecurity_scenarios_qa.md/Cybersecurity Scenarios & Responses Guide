@@ -1,124 +1,77 @@
-Cybersecurity Scenarios & Responses Guide
+# Cybersecurity Scenarios & Recommended Responses Guide
 
-This repository contains practical cybersecurity scenarios, analysis, and step-by-step incident response guidelines covering common attack vectors such as Phishing/Trojans, Ransomware, and Social Engineering / Malicious Software Update Requests.
+A practical guide covering common cybersecurity incident scenarios, threat identification, case study analysis, and step-by-step incident response recommendations.
 
-📌 Scenario 1: The Suspicious Email (Phishing & Trojan Delivery)
+---
 
-Context & Question:
+## Scenario 1: The Suspicious Email & Phishing / Trojan Analysis
 
-You receive an unexpected email from an unknown sender. The subject line says "Urgent: Unpaid Invoice", and the message includes an attachment titled Invoice_7734.zip.
-What type of cyber attack might this be, and what specific indicators in this scenario point you toward that conclusion?
+### Case Details
+* **Incident:** An unexpected email from an unknown sender with the subject `"Urgent: Unpaid Invoice"` containing a compressed attachment `Invoice_7734.zip`.
+* **Primary Threat Category:** Phishing / Trojan Delivery.
 
-Analysis & Answer:
+### Threat Identification & Indicators
+1. **Phishing Strategy:** The email uses social engineering (urgency and false invoice claim) to trick the user into downloading the file.
+2. **Trojan Delivery:** The `.zip` archive often hides executable malicious payloads (e.g., `.exe`, `.vbs`, `.js`) disguised as legitimate documents.
 
-Attack Type: Phishing combined with Trojan malware delivery.
+### Recommended Protective Actions
+* **Do Not Interact:** Do not open, extract, or click the attachment or any embedded links.
+* **Report Incident:** Forward the email to your organization's Security Operations Center (SOC) or IT Security team.
+* **Purge Message:** Permanently delete the email from both the Inbox and Trash folders.
 
-Key Indicators:
+---
 
-Unexpected & Unknown Sender: Lack of prior business context or relationship.
+## Scenario 2: Ransomware Attack & WannaCry Case Study
 
-Urgency Hook: Subject lines creating fake pressure ("Urgent: Unpaid Invoice") to trick the recipient into acting quickly without thinking.
+### Case Details
+* **Incident:** System slowdown followed by a frozen screen and a pop-up declaring files are encrypted, demanding Bitcoin payment for decryption.
+* **Primary Threat Category:** Ransomware.
 
-Malicious Attachment (.zip file): Compressed files are frequently used to hide malicious executables (Trojans) and bypass basic email security scanners.
+### Connection to WannaCry Case Study
+* **Mechanism:** Ransomware families like **WannaCry (2017)** exploit unpatched system vulnerabilities (e.g., *EternalBlue* / SMBv1) to move laterally across networks automatically.
+* **Impact:** Mass file encryption using strong cryptographic algorithms and extortion via cryptocurrency.
 
-Immediate Recommended Actions:
+### Immediate Step-by-Step Response
 
-Do not download or open the attachment (Invoice_7734.zip) or click any embedded links.
+1. **Disconnect from Network Immediately:**
+   * Unplug the Ethernet cable and disable Wi-Fi/Bluetooth adapters to stop lateral movement across the network.
+2. **Do Not Pay the Ransom:**
+   * Payment provides no guarantee of file recovery and funds criminal infrastructure.
+3. **Isolate & Report:**
+   * Keep the machine powered on (if instructed by SOC) or isolated, and immediately notify IT Security/SOC for digital forensics.
+4. **Restore from Offline Backups:**
+   * Wipe/re-image the infected host and restore data from verified, isolated offline backups.
 
-Report the incident immediately to your organization's IT/Security team (SOC).
+---
 
-Delete the email permanently from your Inbox and Trash folder.
+## Scenario 3: Unverified Urgent Software Update Request
 
-📌 Scenario 2: Locked Computer & Encrypted Files (Ransomware & WannaCry Comparison)
+### Case Details
+* **Incident:** An internal chat message from an unverified IT persona demanding immediate software installation via a web link due to a "critical security vulnerability."
+* **Primary Threat Category:** Social Engineering / Impersonation / Malicious Software Distribution.
 
-Context & Question:
+### Analysis & Stuxnet Context
+* **Threat Exploitation:** While historical threats like **Stuxnet** relied on zero-day vulnerabilities in unpatched systems, attackers frequently use social engineering techniques (impersonating internal IT) to manually execute payloads on endpoints.
+* **Verification Flaws:** IT departments do not distribute critical patches via manual click links in chat applications.
 
-You're working on your computer, and it starts running noticeably slower. Suddenly, your screen freezes and a pop-up appears, claiming that your files have been encrypted and demanding payment in Bitcoin to unlock them.
-What type of attack is this, how would you connect this to the WannaCry case study, and what immediate response steps should you take?
+### Immediate Step-by-Step Response
 
-Analysis & Answer:
+1. **Do Not Click the Link:**
+   * Avoid opening links or executing files sent via informal channels.
+2. **Perform Out-of-Band Verification:**
+   * Contact the official IT Helpdesk via phone or verified internal ticketing system to confirm if an official patch was released.
+3. **Report to Security:**
+   * Submit a security report with the chat transcript to SOC/Security teams to analyze potential account compromise.
 
-Attack Type: Ransomware Attack.
+---
 
-Connection to WannaCry:
+## Summary Matrix
 
-Similar to the famous 2017 WannaCry outbreak (which exploited the EternalBlue SMB vulnerability), ransomware encrypts critical files locally and spreads laterally across networks to lock out systems and demand cryptocurrency payments (e.g., Bitcoin).
+| Scenario | Threat Type | Key Indicators | Primary Action |
+| :--- | :--- | :--- | :--- |
+| **1. Suspicious Email** | Phishing / Trojan | Unexpected `.zip` attachment, urgent invoice subject | Do not open; report to SOC and purge |
+| **2. Screen Lockout** | Ransomware | Encrypted files, pop-up demanding Bitcoin payment | Disconnect network cable/Wi-Fi immediately |
+| **3. Chat Software Update** | Social Engineering / Impersonation | External download link sent via chat application | Verify via official IT Helpdesk out-of-band |
 
-Immediate Recommended Response Steps:
-
-Disconnect from Network Immediately:
-
-Unplug the Ethernet cable and disable Wi-Fi/Bluetooth on the affected machine to prevent lateral movement across the internal network.
-
-Do Not Pay the Ransom:
-
-Paying does not guarantee file recovery and incentivizes further cybercriminal activity.
-
-Isolate and Report:
-
-Keep the device turned on (or in its current state as advised by forensics) but isolated. Report the event to your IT Security department immediately.
-
-Restore from Offline Backups:
-
-Re-image/format the affected machine and restore data from verified, uninfected offline (air-gapped) backups.
-
-📌 Scenario 3: Fake Urgent Software Update (Social Engineering & Unpatched Systems)
-
-Context & Question:
-
-You receive an internal message through your company's chat system from someone claiming to be in IT. They are asking you to immediately install a software update via a provided link because of a critical security vulnerability.
-Given how threats like Stuxnet exploited unpatched systems, how would you evaluate the legitimacy of this request, and what specific steps would you take before clicking that link?
-
-Analysis & Answer:
-
-Evaluation of Legitimacy:
-
-While unpatched systems pose severe risks (as demonstrated by historic threats like Stuxnet exploiting zero-day vulnerabilities), attackers often leverage social engineering to trick employees into installing malware via suspicious links under the guise of an "urgent security patch."
-
-Verification & Protective Steps:
-
-Zero-Trust Approach:
-
-Do not click the link or download any executables from informal chat channels.
-
-Out-of-Band Verification:
-
-Contact your IT Helpdesk or Security team through official, established channels (e.g., internal phone directory, ticketing portal) to confirm if a patch release is real.
-
-Note that legitimate enterprise software updates are usually deployed centrally via managed system tools (e.g., SCCM, Intune) rather than manual chat links.
-
-Link Inspection:
-
-Hover over the link to verify the domain address. Avoid any external or unfamiliar URLs.
-
-Report the Sighting:
-
-Alert your SOC team so they can inspect the sender's account for compromise and block malicious URLs at the firewall level.
-
-🛠 Summary Checklist
-
-Attack Type
-
-Primary Threat Vector
-
-Key Defense Action
-
-Phishing / Trojan
-
-Fake Email & .zip file
-
-Do not open attachment; report to IT
-
-Ransomware
-
-Data Encryption & Extortion
-
-Disconnect network immediately; restore from backup
-
-Fake IT Update
-
-Social Engineering Chat Link
-
-Out-of-band verification; zero-trust link policy
-
-Created for security awareness reference and library documentation.
+---
+*Created for personal cybersecurity reference and documentation.*
