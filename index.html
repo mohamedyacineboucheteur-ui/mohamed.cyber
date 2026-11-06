@@ -6,6 +6,8 @@
     <title>المركز السيبراني والأعمال العملية | Mohamed Yacine</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Marked.js for Markdown Parsing -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
@@ -43,6 +45,21 @@
         ::-webkit-scrollbar-track { background: #0d1117; }
         ::-webkit-scrollbar-thumb { background: #30363d; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #58a6ff; }
+        
+        .markdown-body h1 { color: #58a6ff; font-weight: 700; font-size: 1.8rem; border-bottom: 2px solid #30363d; padding-bottom: 8px; margin: 16px 0; }
+        .markdown-body h2 { color: #39c5bb; font-weight: 600; font-size: 1.4rem; border-bottom: 1px solid #30363d; padding-bottom: 6px; margin: 14px 0; }
+        .markdown-body h3 { color: #f78166; font-weight: 600; font-size: 1.15rem; margin: 12px 0 8px 0; }
+        .markdown-body p { line-height: 1.8; margin-bottom: 12px; color: #e6edf3; }
+        .markdown-body code { background-color: rgba(110, 118, 129, 0.2); color: #39c5bb; padding: 2px 6px; border-radius: 4px; font-family: 'Fira Code', monospace; font-size: 0.9em; direction: ltr; display: inline-block; }
+        .markdown-body pre { background-color: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 14px; overflow-x: auto; direction: ltr; text-align: left; margin-bottom: 16px; }
+        .markdown-body pre code { background: transparent; padding: 0; color: #e6edf3; }
+        .markdown-body blockquote { border-right: 4px solid #58a6ff; background-color: rgba(56, 139, 253, 0.1); padding: 10px 16px; margin-bottom: 16px; border-radius: 0 6px 6px 0; color: #a5d6ff; }
+        .markdown-body ul { list-style-type: disc; padding-right: 24px; margin-bottom: 12px; }
+        .markdown-body ol { list-style-type: decimal; padding-right: 24px; margin-bottom: 12px; }
+        .markdown-body li { margin-bottom: 4px; }
+        .markdown-body table { width: 100%; border-collapse: collapse; margin-bottom: 16px; }
+        .markdown-body th, .markdown-body td { border: 1px solid #30363d; padding: 8px 12px; text-align: right; }
+        .markdown-body th { background-color: #161b22; color: #58a6ff; }
     </style>
 </head>
 <body class="min-h-screen flex flex-col">
@@ -63,75 +80,127 @@
             <!-- Tab Navigation Buttons -->
             <nav class="flex bg-cyber-dark p-1 rounded-lg border border-cyber-border text-sm font-medium flex-wrap gap-1">
                 <button id="btn-projects-tab" onclick="switchTab('projects')" class="px-3 py-2 rounded-md transition-all text-cyber-blue bg-cyber-card shadow font-bold">
-                    <i class="fa-solid fa-laptop-code ml-1"></i>المختبرات والأعمال
+                    <i class="fa-solid fa-laptop-code ml-1"></i>الأعمال والمختبرات
                 </button>
                 <button id="btn-electronics-tab" onclick="switchTab('electronics')" class="px-3 py-2 rounded-md transition-all text-cyber-muted hover:text-white">
-                    <i class="fa-solid fa-car ml-1"></i>السيارات والأنظمة
+                    <i class="fa-solid fa-car ml-1"></i>إلكترونيات السيارات
                 </button>
                 <button id="btn-lessons-tab" onclick="switchTab('lessons')" class="px-3 py-2 rounded-md transition-all text-cyber-muted hover:text-white">
                     <i class="fa-solid fa-book-bookmark ml-1"></i>الدروس والدراسة
                 </button>
                 <button id="btn-creds-tab" onclick="switchTab('creds')" class="px-3 py-2 rounded-md transition-all text-cyber-muted hover:text-white">
-                    <i class="fa-solid fa-award ml-1"></i>الشهادات
+                    <i class="fa-solid fa-award ml-1"></i>الشهادات والاعتمادات
                 </button>
                 <button id="btn-cv-tab" onclick="switchTab('cv')" class="px-3 py-2 rounded-md transition-all text-cyber-muted hover:text-white">
                     <i class="fa-solid fa-id-card ml-1"></i>السيرة الذاتية (CV)
+                </button>
+                <button id="btn-yt-tab" onclick="switchTab('yt')" class="px-3 py-2 rounded-md transition-all text-cyber-muted hover:text-white">
+                    <i class="fa-brands fa-youtube ml-1 text-red-500"></i>يوتيوب
                 </button>
             </nav>
         </div>
     </header>
 
     <!-- Main Content Area -->
-    <main class="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 flex flex-col space-y-8">
+    <main class="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 flex flex-col">
 
-        <!-- TAB 1: Hands-on Labs & Projects -->
-        <section id="tab-projects" class="space-y-6">
+        <!-- TAB 1: Projects & Labs -->
+        <section id="tab-projects" class="space-y-8">
             <div class="text-center max-w-3xl mx-auto space-y-2">
-                <div class="inline-block px-3 py-1 bg-cyber-cyan/10 border border-cyber-cyan/35 rounded-full text-cyber-cyan text-xs font-mono font-bold">
+                <div class="inline-block px-3 py-1 bg-cyber-cyan/10 border border-cyber-cyan/30 rounded-full text-cyber-cyan text-xs font-mono font-bold">
                     HANDS-ON SECURITY LABS & PROJECTS
                 </div>
-                <h2 class="text-3xl font-extrabold text-white">المختبرات والأعمال العملية المنجزة</h2>
-                <p class="text-xs text-cyber-muted">مشاريع تطبيقية في تحليل الشبكات، مراقبة السجلات، فحص الثغرات، والذكاء الاصطناعي الأمني.</p>
+                <h2 class="text-3xl font-extrabold text-white">الأعمال والمختبرات العملية المنجزة</h2>
+                <p class="text-xs text-cyber-muted">تطبيقات عملية ومشاريع ميدانية في إدارة المخاطر، تحليل حركة الشبكات، واكتشاف الثغرات الأمنية.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Wazuh Lab -->
-                <div class="bg-cyber-card border border-cyber-border rounded-xl p-5 space-y-4 shadow-xl flex flex-col justify-between">
-                    <div>
-                        <span class="bg-cyber-blue/20 text-cyber-blue border border-cyber-blue/30 text-[10px] font-bold px-2 py-0.5 rounded font-mono">SIEM & Monitoring</span>
-                        <h3 class="text-base font-bold text-white mt-2">إدارة المخاطر ورصد النقاط الطرفية بـ Wazuh</h3>
-                        <p class="text-xs text-cyber-muted leading-relaxed mt-1">بناء وتنصيب نظام Wazuh SIEM في بيئة افتراضية لمراقبة السجلات الأمنية وكشف التهديدات الحية.</p>
+                <!-- 1. Wazuh -->
+                <div class="bg-cyber-card border border-cyber-border rounded-xl overflow-hidden hover:border-cyber-blue transition-all flex flex-col shadow-xl">
+                    <div class="h-48 bg-cyber-dark overflow-hidden flex items-center justify-center p-3 border-b border-cyber-border">
+                        <img src="Wazuh_Vulnerabilities.png" alt="Wazuh" class="w-full h-full object-cover rounded-lg">
                     </div>
-                    <div class="pt-3 border-t border-cyber-border text-[11px] text-cyber-cyan font-mono flex justify-between">
-                        <span>Wazuh OVA & VirtualBox</span>
-                        <span class="text-green-400 font-bold">مكتمل</span>
-                    </div>
-                </div>
-
-                <!-- Wireshark Lab -->
-                <div class="bg-cyber-card border border-cyber-border rounded-xl p-5 space-y-4 shadow-xl flex flex-col justify-between">
-                    <div>
-                        <span class="bg-cyber-green/20 text-cyber-green border border-cyber-green/30 text-[10px] font-bold px-2 py-0.5 rounded font-mono">Network Forensics</span>
-                        <h3 class="text-base font-bold text-white mt-2">تحليل حركة الشبكة وفحص الحزم بـ Wireshark</h3>
-                        <p class="text-xs text-cyber-muted leading-relaxed mt-1">تشريح حركة بيانات الشبكة، دراسة سلوك بروتوكولات الاتصال ورصد الأنشطة المشبوهة بدقة.</p>
-                    </div>
-                    <div class="pt-3 border-t border-cyber-border text-[11px] text-cyber-cyan font-mono flex justify-between">
-                        <span>Packet Analysis</span>
-                        <span class="text-green-400 font-bold">مكتمل</span>
+                    <div class="p-5 flex-1 flex flex-col justify-between space-y-3">
+                        <div>
+                            <span class="bg-cyber-blue/20 text-cyber-blue border border-cyber-blue/30 text-[10px] font-bold px-2 py-0.5 rounded font-mono">SIEM & Monitoring</span>
+                            <h3 class="text-base font-bold text-white mt-2">إدارة المخاطر ورصد النقاط الطرفية بـ Wazuh</h3>
+                            <p class="text-xs text-cyber-muted leading-relaxed mt-1">بناء وتنصيب نظام Wazuh SIEM في بيئة افتراضية لمراقبة السجلات الأمنية وكشف التهديدات.</p>
+                        </div>
+                        <div class="pt-3 border-t border-cyber-border/50 text-[11px] text-cyber-cyan font-mono flex justify-between">
+                            <span>Wazuh OVA & VirtualBox</span>
+                            <span class="text-green-400 font-bold">مكتمل</span>
+                        </div>
                     </div>
                 </div>
 
-                <!-- AI SOC Copilot -->
-                <div class="bg-cyber-card border border-cyber-border rounded-xl p-5 space-y-4 shadow-xl flex flex-col justify-between">
+                <!-- 2. Wireshark -->
+                <div class="bg-cyber-card border border-cyber-border rounded-xl overflow-hidden hover:border-cyber-blue transition-all flex flex-col shadow-xl">
+                    <div class="h-48 bg-cyber-dark overflow-hidden flex items-center justify-center p-3 border-b border-cyber-border">
+                        <img src="mobile-analysis.png" alt="Wireshark" class="w-full h-full object-cover rounded-lg">
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col justify-between space-y-3">
+                        <div>
+                            <span class="bg-cyber-green/20 text-cyber-green border border-cyber-green/30 text-[10px] font-bold px-2 py-0.5 rounded font-mono">Network Forensics</span>
+                            <h3 class="text-base font-bold text-white mt-2">تحليل حركة الشبكة وفحص الحزم بـ Wireshark</h3>
+                            <p class="text-xs text-cyber-muted leading-relaxed mt-1">تشريح حركة بيانات الشبكة، دراسة سلوك بروتوكولات الاتصال ورصد الأنشطة المشبوهة.</p>
+                        </div>
+                        <div class="pt-3 border-t border-cyber-border/50 text-[11px] text-cyber-cyan font-mono flex justify-between">
+                            <span>Packet Analysis</span>
+                            <span class="text-green-400 font-bold">مكتمل</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Router Vulnerability -->
+                <div class="bg-cyber-card border border-cyber-border rounded-xl overflow-hidden hover:border-cyber-blue transition-all flex flex-col shadow-xl">
+                    <div class="h-48 bg-cyber-dark overflow-hidden flex items-center justify-center p-3 border-b border-cyber-border">
+                        <img src="vuln_discovery 1.png" alt="Router Vulnerability" class="w-full h-full object-cover rounded-lg">
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col justify-between space-y-3">
+                        <div>
+                            <span class="bg-cyber-accent/20 text-cyber-accent border border-cyber-accent/30 text-[10px] font-bold px-2 py-0.5 rounded font-mono">Vulnerability Assessment</span>
+                            <h3 class="text-base font-bold text-white mt-2">اكتشاف الثغرات الأمنية في موديم منزلي</h3>
+                            <p class="text-xs text-cyber-muted leading-relaxed mt-1">تحليل ثغرات أجهزة التوجيه، فحص التكوين، وتأمين بروتوكولات الإدارة.</p>
+                        </div>
+                        <div class="pt-3 border-t border-cyber-border/50 text-[11px] text-cyber-cyan font-mono flex justify-between">
+                            <span>CVE & Router Hardening</span>
+                            <span class="text-green-400 font-bold">مكتمل</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Nmap Scanning -->
+                <div class="bg-cyber-card border border-cyber-border rounded-xl overflow-hidden hover:border-cyber-blue transition-all flex flex-col shadow-xl">
+                    <div class="h-48 bg-cyber-dark overflow-hidden flex items-center justify-center p-3 border-b border-cyber-border">
+                        <img src="linux.png" alt="Nmap Scan" class="w-full h-full object-cover rounded-lg">
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col justify-between space-y-3">
+                        <div>
+                            <span class="bg-cyber-purple/20 text-cyber-purple border border-cyber-purple/30 text-[10px] font-bold px-2 py-0.5 rounded font-mono">Network Enumeration</span>
+                            <h3 class="text-base font-bold text-white mt-2">فحص واستكشاف خدمات الشبكة باستخدام Nmap</h3>
+                            <p class="text-xs text-cyber-muted leading-relaxed mt-1">تحديد المنافذ المفتوحة، رصد إصدارات الخدمات، وتحليل البنية التحتية للهدف من بيئة Kali Linux.</p>
+                        </div>
+                        <div class="pt-3 border-t border-cyber-border/50 text-[11px] text-cyber-cyan font-mono flex justify-between">
+                            <span>Kali Linux & Nmap</span>
+                            <span class="text-green-400 font-bold">مكتمل</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. AI SOC Copilot -->
+                <div class="bg-cyber-card border border-cyber-border rounded-xl p-5 space-y-4 shadow-xl hover:border-cyber-cyan/50 transition flex flex-col justify-between">
                     <div>
-                        <div class="flex items-center justify-between border-b border-cyber-border pb-2">
+                        <div class="flex items-center justify-between border-b border-cyber-border pb-3">
                             <h3 class="text-base font-bold text-cyber-blue flex items-center gap-2">
                                 <i class="fa-solid fa-brain text-cyan-400"></i>
                                 <span>AI SOC Copilot</span>
                             </h3>
                             <span class="text-[10px] bg-cyber-cyan/10 text-cyan-400 border border-cyber-cyan/20 px-2 py-0.5 rounded-full font-mono">Python / AI</span>
                         </div>
-                        <p class="text-xs text-gray-300 leading-relaxed mt-2">
+                        <div class="relative overflow-hidden rounded-lg border border-cyber-border my-3">
+                            <img src="756347805_1560829142383186_909716183572273318_n.jpg" alt="AI SOC Copilot" class="w-full h-32 object-cover">
+                        </div>
+                        <p class="text-xs text-gray-300 leading-relaxed">
                             أداة أتمتة محلية تراقب سجلات النظام الحية وتربطها بنموذج الذكاء الاصطناعي المحلي **Ollama (Gemma:2b)** للتحليل الفوري للتنبيهات الأمنية.
                         </p>
                     </div>
@@ -140,47 +209,304 @@
                         <a href="https://github.com/mohamedyacineboucheteur-ui/mohamed.cyber" target="_blank" class="py-2 px-2 rounded-lg text-xs bg-cyber-dark hover:bg-cyber-border border border-cyber-border text-gray-200 text-center">GitHub</a>
                     </div>
                 </div>
+
+                <!-- 6. TryHackMe SOC L1 -->
+                <div class="bg-cyber-card border border-cyber-border rounded-xl p-5 space-y-4 shadow-xl flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between border-b border-cyber-border pb-3">
+                            <h3 class="text-base font-bold text-cyber-blue flex items-center gap-2">
+                                <i class="fa-solid fa-shield-halved text-cyan-400"></i>
+                                <span>TryHackMe: SOC L1 Triage</span>
+                            </h3>
+                            <span class="text-[10px] bg-cyber-cyan/10 text-cyan-400 border border-cyber-cyan/20 px-2 py-0.5 rounded-full font-mono">SOC / Triage</span>
+                        </div>
+                        <p class="text-xs text-gray-300 leading-relaxed mt-3">
+                            إتمام التدريب العملي لفرز وتحليل تنبيهات مركز عمليات الأمن السيبراني وتطبيق منهجيات تحديد الأولويات والتعامل مع التهديدات.
+                        </p>
+                    </div>
+                    <div class="pt-3 border-t border-cyber-border text-[11px] text-cyber-cyan font-mono flex justify-between">
+                        <span>TryHackMe Platform</span>
+                        <span class="text-green-400 font-bold">مكتمل</span>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- TAB 2: Electronics & Automotive Systems -->
-        <section id="tab-electronics" class="hidden space-y-6">
+        <!-- TAB 2: Electronics & Automotive Security -->
+        <section id="tab-electronics" class="hidden space-y-8">
             <div class="text-center max-w-3xl mx-auto space-y-2">
-                <div class="inline-block px-3 py-1 bg-cyber-blue/10 border border-cyber-blue/35 rounded-full text-cyber-blue text-xs font-mono font-bold">
-                    AUTOMOTIVE & COMPLEX SYSTEMS
+                <div class="inline-block px-3 py-1 bg-cyber-blue/10 border border-cyber-blue/30 rounded-full text-cyber-blue text-xs font-mono font-bold">
+                    ADVANCED ELECTRONICS & AUTOMOTIVE CYBERSECURITY
                 </div>
-                <h2 class="text-3xl font-extrabold text-white">إلكترونيات السيارات وحماية الأنظمة المعقدة</h2>
-                <p class="text-xs text-cyber-muted">خبرة ميدانية في إصلاح اللوحات الإلكترونية، فحص بروتوكولات السيارات، وتأمين الأنظمة المدمجة.</p>
+                <h2 class="text-3xl font-extrabold text-white">إلكترونيات الأنظمة المعقدة وحماية السيارات</h2>
+                <p class="text-xs text-cyber-muted">خبرة عملية ميدانية في إصلاح اللوحات الإلكترونية والميكانيكية، تحليل شبكات الاتصال الداخلية للسيارات (CAN Bus)، وحمايتها.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Hardware Repair -->
                 <div class="bg-cyber-card border border-cyber-border rounded-xl p-5 space-y-4 shadow-xl">
                     <h3 class="text-base font-bold text-cyber-blue flex items-center gap-2">
                         <i class="fa-solid fa-microchip text-cyan-400"></i>
                         <span>إصلاح اللوحات الإلكترونية</span>
                     </h3>
                     <p class="text-xs text-gray-300 leading-relaxed">
-                        تشخيص وإصلاح اللوحات الإلكترونية والميكانيكية المعقدة، فحص الدوائر المطبوعة (PCBs)، وتحديد الأعطال بدقة عالية بفضل الخبرة العميقة في الأنظمة الكهرتقنية.
+                        تشخيص وإصلاح اللوحات الإلكترونية والميكانيكية المعقدة، فحص الدوائر المطبوعة (PCBs)، وتحديد الأعطال بدقة عالية بناءً على الخبرة الميدانية التقنية العميقة.
                     </p>
                 </div>
-
-                <!-- CAN Bus & OBD2 -->
                 <div class="bg-cyber-card border border-cyber-border rounded-xl p-5 space-y-4 shadow-xl">
                     <h3 class="text-base font-bold text-cyber-blue flex items-center gap-2">
                         <i class="fa-solid fa-car text-cyan-400"></i>
                         <span>فحص بروتوكول CAN Bus & OBD2</span>
                     </h3>
                     <p class="text-xs text-gray-300 leading-relaxed">
-                        اختبار وتفتيش حزم بيانات ناقل التحكم للسيارات (CAN bus)، وتوصيل مستشعرات OBD2 بالأنظمة والأجهزة الطرفية باستخدام وحدات تحكم Raspberry Pi.
+                        البحث والتطوير في أمن السيارات، واختبار وتفتيش حزم بيانات ناقل التحكم (CAN bus)، وتوصيل مستشعرات OBD2 بالأجهزة الطرفية عبر وحدات Raspberry Pi.
                     </p>
                 </div>
-
-                <!-- Automotive Security -->
                 <div class="bg-cyber-card border border-cyber-border rounded-xl p-5 space-y-4 shadow-xl">
                     <h3 class="text-base font-bold text-cyber-blue flex items-center gap-2">
                         <i class="fa-solid fa-shield-virus text-cyan-400"></i>
-                        <span>أمن السيارات السيبراني</span>
+                        <span>أمن السيارات السيبراني (Automotive Security)</span>
                     </h3>
                     <p class="text-xs text-gray-300 leading-relaxed">
-                        تحليل الثغرات الأمنية في الأنظمة المدمجة للمركبات، تأمين قنوات الاتصال ضد هجمات حقن الرسائل (
+                        تحليل الثغرات الأمنية المحتملة في الأنظمة المدمجة للسيارات الذكية، تأمين قنوات الاتصال ضد هجمات حقن الرسائل (CAN Injection)، وحماية البنى التحتية للمركبات.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 3: Lessons & Curriculum -->
+        <section id="tab-lessons" class="hidden space-y-8">
+            <div class="text-center max-w-3xl mx-auto space-y-2">
+                <div class="inline-block px-3 py-1 bg-cyber-blue/10 border border-cyber-blue/30 rounded-full text-cyber-blue text-xs font-mono font-bold">
+                    AUTOMOTIVE CYBERSECURITY COURSE - CURRICULUM
+                </div>
+                <h2 class="text-3xl font-extrabold text-white">مسار دراسة أمن المركبات والأنظمة المعقدة</h2>
+                <p class="text-xs text-cyber-muted">دروس مرتبة ومنهجية للدراسة والمراجعة التقنية مع دعم اللغتين (عربي / إنجليزي).</p>
+            </div>
+
+            <div class="flex justify-center flex-wrap gap-2 font-mono text-xs">
+                <button id="btn-lesson-1" onclick="switchLesson(1)" class="px-4 py-2 rounded-xl transition-all bg-cyber-blue text-cyber-dark font-bold shadow-md">
+                    <i class="fa-solid fa-book-open ml-1"></i>الدرس الأول (Lesson 1)
+                </button>
+                <button id="btn-lesson-2" onclick="switchLesson(2)" class="px-4 py-2 rounded-xl transition-all bg-cyber-dark hover:bg-cyber-border text-cyber-muted hover:text-white border border-cyber-border">
+                    <i class="fa-solid fa-book-bookmark ml-1"></i>الدرس الثاني (Lesson 2)
+                </button>
+            </div>
+
+            <div class="flex justify-center">
+                <div class="bg-cyber-dark/80 p-1 rounded-lg border border-cyber-border flex space-x-2 space-x-reverse font-mono text-[11px]">
+                    <button id="lesson-lang-ar" onclick="switchLessonLang('ar')" class="px-3 py-1.5 rounded-md transition-all bg-cyber-cyan text-cyber-dark font-bold">عربي</button>
+                    <button id="lesson-lang-en" onclick="switchLessonLang('en')" class="px-3 py-1.5 rounded-md transition-all text-cyber-muted hover:text-white">English</button>
+                </div>
+            </div>
+
+            <!-- Lesson 1 -->
+            <div id="lesson-content-1" class="space-y-6">
+                <div id="l1-content-ar" class="bg-cyber-card border border-cyber-border rounded-xl p-6 sm:p-8 shadow-2xl space-y-6 text-right" dir="rtl">
+                    <h3 class="text-xl font-bold text-cyber-blue flex items-center gap-2">
+                        <i class="fa-solid fa-shield-halved text-cyan-400"></i>
+                        <span>الدرس الأول: المفاهيم الأساسية والأمن السيبراني للمركبات</span>
+                    </h3>
+                    <div class="grid md:grid-cols-2 gap-6 text-xs sm:text-sm">
+                        <div class="bg-cyber-dark/60 p-4 rounded-xl border border-cyber-border space-y-2">
+                            <h4 class="font-bold text-cyber-cyan">1. ناقلات الهجوم ونقاط الدخول</h4>
+                            <p class="text-gray-300">الطرق والمسارات المستغلة للوصول لوحدات التحكم (ECUs) مثل الواي فاي، منافذ OBD2، والثغرات البرمجية.</p>
+                        </div>
+                        <div class="bg-cyber-dark/60 p-4 rounded-xl border border-cyber-border space-y-2">
+                            <h4 class="font-bold text-cyber-cyan">2. التهديدات والنتائج</h4>
+                            <p class="text-gray-300">تتراوح بين سرقة البيانات والسيطرة على الأنظمة الحرجة، مما يمس السلامة العامة.</p>
+                        </div>
+                        <div class="bg-cyber-dark/60 p-4 rounded-xl border border-cyber-border space-y-2">
+                            <h4 class="font-bold text-cyber-cyan">3. نظام إدارة الأمن (CSMS)</h4>
+                            <p class="text-gray-300">إطار لضمان دمج تدابير الأمان طوال دورة حياة المركبة والامتثال للمعايير الدولية.</p>
+                        </div>
+                        <div class="bg-cyber-dark/60 p-4 rounded-xl border border-cyber-border space-y-2">
+                            <h4 class="font-bold text-cyber-cyan">4. استراتيجيات الدفاع</h4>
+                            <p class="text-gray-300">عزل الأنظمة الحيوية، التشفير والمصادقة، وأنظمة كشف التسلل (IDS).</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="l1-content-en" class="hidden bg-cyber-card border border-cyber-border rounded-xl p-6 sm:p-8 shadow-2xl space-y-6 text-left" dir="ltr">
+                    <h3 class="text-xl font-bold text-cyber-blue flex items-center gap-2">
+                        <i class="fa-solid fa-shield-halved text-cyan-400"></i>
+                        <span>Lesson 1: Core Concepts & Automotive Cybersecurity</span>
+                    </h3>
+                    <div class="grid md:grid-cols-2 gap-6 text-xs sm:text-sm">
+                        <div class="bg-cyber-dark/60 p-4 rounded-xl border border-cyber-border space-y-2">
+                            <h4 class="font-bold text-cyber-cyan">1. Attack Vectors & Entry Points</h4>
+                            <p class="text-gray-300">Paths like wireless access, physical OBD2 ports, and software flaws to reach vehicle ECUs.</p>
+                        </div>
+                        <div class="bg-cyber-dark/60 p-4 rounded-xl border border-cyber-border space-y-2">
+                            <h4 class="font-bold text-cyber-cyan">2. Threats & Consequences</h4>
+                            <p class="text-gray-300">Ranging from privacy breaches to critical operational control loss impacting safety.</p>
+                        </div>
+                        <div class="bg-cyber-dark/60 p-4 rounded-xl border border-cyber-border space-y-2">
+                            <h4 class="font-bold text-cyber-cyan">3. CSMS Framework</h4>
+                            <p class="text-gray-300">Lifecycle governance ensuring threat mitigation and global standard compliance.</p>
+                        </div>
+                        <div class="bg-cyber-dark/60 p-4 rounded-xl border border-cyber-border space-y-2">
+                            <h4 class="font-bold text-cyber-cyan">4. Defense Approaches</h4>
+                            <p class="text-gray-300">System isolation, payload encryption/authentication, and intrusion detection systems (IDS).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lesson 2 Placeholder -->
+            <div id="lesson-content-2" class="hidden space-y-6">
+                <div class="bg-cyber-card border border-cyber-border rounded-xl p-8 text-center space-y-4 shadow-2xl">
+                    <h3 class="text-xl font-bold text-white">الدرس الثاني قيد تجهيز المحتوى</h3>
+                    <p class="text-xs text-cyber-muted">هذا المكان مخصص للدرس القادم.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 4: Certifications -->
+        <section id="tab-creds" class="hidden space-y-8">
+            <div class="text-center max-w-3xl mx-auto space-y-2">
+                <div class="inline-block px-3 py-1 bg-cyber-blue/10 border border-cyber-blue/30 rounded-full text-cyber-blue text-xs font-mono font-bold">
+                    PROFESSIONAL CERTIFICATIONS
+                </div>
+                <h2 class="text-3xl font-extrabold text-white">الشهادات والاعتمادات التقنية</h2>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-cyber-card border border-cyber-border p-5 rounded-xl space-y-2 shadow-xl">
+                    <h4 class="font-bold text-white">Google Cybersecurity</h4>
+                    <p class="text-xs text-cyber-muted">الشهادة الاحترافية المعتمدة • 2026</p>
+                </div>
+                <div class="bg-cyber-card border border-cyber-border p-5 rounded-xl space-y-2 shadow-xl">
+                    <h4 class="font-bold text-white">Cisco Networking Basics</h4>
+                    <p class="text-xs text-cyber-muted">أكاديمية سيسكو للشبكات • 2026</p>
+                </div>
+                <div class="bg-cyber-card border border-cyber-border p-5 rounded-xl space-y-2 shadow-xl">
+                    <h4 class="font-bold text-white">OPSWAT Academy ICIP</h4>
+                    <p class="text-xs text-cyber-muted">حماية البنى التحتية الحرجة • 2026</p>
+                </div>
+                <div class="bg-cyber-card border border-cyber-border p-5 rounded-xl space-y-2 shadow-xl">
+                    <h4 class="font-bold text-white">TryHackMe SOC Level 1</h4>
+                    <p class="text-xs text-cyber-muted">فرز وتحليل تنبيهات الأمان • 2026</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 5: CV -->
+        <section id="tab-cv" class="hidden space-y-6">
+            <div class="bg-cyber-card border border-cyber-border rounded-xl p-6 sm:p-10 shadow-2xl space-y-8">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center border-b border-cyber-border pb-6 gap-4">
+                    <div>
+                        <h2 class="text-2xl sm:text-3xl font-black text-white">محمد ياسين بوشطر</h2>
+                        <p class="text-cyber-blue font-mono text-sm mt-1">Cybersecurity Analyst & SOC Specialist | Senior Technician</p>
+                        <div class="flex flex-wrap gap-4 text-xs text-cyber-muted mt-3 font-mono">
+                            <span><i class="fa-solid fa-location-dot ml-1 text-cyber-cyan"></i>وهران، الجزائر</span>
+                            <span><i class="fa-solid fa-envelope ml-1 text-cyber-cyan"></i>mohamedyacineboucheteur@gmail.com</span>
+                            <span><i class="fa-solid fa-phone ml-1 text-cyber-cyan"></i>0658900112</span>
+                        </div>
+                    </div>
+                    <div>
+                        <a href="mohamed-yacine-cv.pdf" target="_blank" class="bg-cyber-blue hover:bg-blue-600 text-cyber-dark font-bold px-4 py-2 rounded-lg text-xs transition flex items-center shadow-lg font-mono">
+                            <i class="fa-solid fa-file-arrow-down ml-2"></i>تحميل كـ PDF (ATS)
+                        </a>
+                    </div>
+                </div>
+
+                <div class="space-y-2">
+                    <h3 class="text-base font-bold text-cyber-cyan flex items-center">
+                        <i class="fa-solid fa-user-shield ml-2"></i>الملخص المهني (Professional Summary)
+                    </h3>
+                    <p class="text-xs sm:text-sm text-gray-300 leading-relaxed">
+                        محلل أمن سيبراني واختصاصي حماية شبكات بخبرة تقنية واسعة تمتد لعقد من الزمن (2015-2025) في صيانة الأنظمة الإلكترونية وتقنيات الرادار. حاصل على شهادة جوجل للأمان السيبراني واعتمادات متقدمة في أمن البنى التحتية الحرجة (OPSWAT ICIP) والشبكات.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 6: YouTube Sources -->
+        <section id="tab-yt" class="hidden space-y-6">
+            <div class="text-center max-w-3xl mx-auto space-y-2 mb-6">
+                <h2 class="text-2xl font-bold text-white">مصادر وقنوات يوتيوب للأمن السيبراني</h2>
+                <p class="text-xs text-cyber-muted">أبرز القنوات والمرجعيات التعليمية لتطوير المهارات الميدانية والتحليل الأمني.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-cyber-card border border-cyber-border rounded-xl p-5 flex flex-col justify-between shadow-xl">
+                    <div class="space-y-3">
+                        <div class="w-10 h-10 rounded-lg bg-red-500/10 border border-red-500/30 flex items-center justify-center text-red-400 text-lg">
+                            <i class="fa-brands fa-youtube"></i>
+                        </div>
+                        <h3 class="text-base font-bold text-white">NetworkChuck</h3>
+                        <p class="text-xs text-cyber-muted leading-relaxed">شروحات رائعة في الشبكات، بايثون، والأمن السيبراني بطريقة عملية.</p>
+                    </div>
+                    <div class="pt-4 mt-4 border-t border-cyber-border">
+                        <a href="https://www.youtube.com/@NetworkChuck" target="_blank" class="text-xs text-cyber-blue hover:underline flex items-center justify-between font-mono">
+                            <span>زيارة القناة</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- JavaScript Navigation and Tab Control Script -->
+    <script>
+        function switchTab(tabId) {
+            ['projects', 'electronics', 'lessons', 'creds', 'cv', 'yt'].forEach(id => {
+                const el = document.getElementById('tab-' + id);
+                const btn = document.getElementById('btn-' + id + '-tab');
+                if (el) el.classList.add('hidden');
+                if (btn) btn.className = "px-3 py-2 rounded-md transition-all text-cyber-muted hover:text-white";
+            });
+
+            const activeTab = document.getElementById('tab-' + tabId);
+            const activeBtn = document.getElementById('btn-' + tabId + '-tab');
+            if (activeTab) activeTab.classList.remove('hidden');
+            if (activeBtn) activeBtn.className = "px-3 py-2 rounded-md transition-all text-cyber-blue bg-cyber-card shadow font-bold";
+        }
+
+        let currentLesson = 1;
+        let currentLang = 'ar';
+
+        function switchLesson(lessonNum) {
+            currentLesson = lessonNum;
+            document.getElementById('lesson-content-1').classList.add('hidden');
+            document.getElementById('lesson-content-2').classList.add('hidden');
+            document.getElementById(`lesson-content-${lessonNum}`).classList.remove('hidden');
+
+            document.getElementById('btn-lesson-1').className = lessonNum === 1 ? "px-4 py-2 rounded-xl transition-all bg-cyber-blue text-cyber-dark font-bold shadow-md" : "px-4 py-2 rounded-xl transition-all bg-cyber-dark hover:bg-cyber-border text-cyber-muted hover:text-white border border-cyber-border";
+            document.getElementById('btn-lesson-2').className = lessonNum === 2 ? "px-4 py-2 rounded-xl transition-all bg-cyber-blue text-cyber-dark font-bold shadow-md" : "px-4 py-2 rounded-xl transition-all bg-cyber-dark hover:bg-cyber-border text-cyber-muted hover:text-white border border-cyber-border";
+            
+            updateLanguageView();
+        }
+
+        function switchLessonLang(lang) {
+            currentLang = lang;
+            updateLanguageView();
+        }
+
+        function updateLanguageView() {
+            const arBtn = document.getElementById('lesson-lang-ar');
+            const enBtn = document.getElementById('lesson-lang-en');
+
+            if (currentLang === 'ar') {
+                arBtn.className = "px-3 py-1.5 rounded-md transition-all bg-cyber-cyan text-cyber-dark font-bold";
+                enBtn.className = "px-3 py-1.5 rounded-md transition-all text-cyber-muted hover:text-white";
+            } else {
+                enBtn.className = "px-3 py-1.5 rounded-md transition-all text-cyber-cyan text-cyber-dark font-bold";
+                arBtn.className = "px-3 py-1.5 rounded-md transition-all text-cyber-muted hover:text-white";
+            }
+
+            if (currentLesson === 1) {
+                const arContent = document.getElementById('l1-content-ar');
+                const enContent = document.getElementById('l1-content-en');
+                if (currentLang === 'ar') {
+                    arContent.classList.remove('hidden');
+                    enContent.classList.add('hidden');
+                } else {
+                    enContent.classList.remove('hidden');
+                    arContent.classList.add('hidden');
+                }
+            }
+        }
+    </script>
+</body>
+</html>
